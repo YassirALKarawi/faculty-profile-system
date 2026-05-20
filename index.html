@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>استمارة الملف العلمي للتدريسيين - قسم هندسة الاتصالات</title>
+  <style>
+    :root{--navy:#0D2F4A;--navy2:#082033;--gold:#C8A968;--bg:#F7F4EC;--line:#d7dbe0;--text:#17212b;--muted:#687584;--ok:#0f7b4f;--err:#b42318}
+    *{box-sizing:border-box} body{margin:0;font-family:Tahoma,Arial,sans-serif;background:linear-gradient(180deg,var(--bg),#fff);color:var(--text);line-height:1.7}
+    .wrap{max-width:1050px;margin:28px auto;padding:0 14px}.card{background:#fff;border:1px solid #e4e6e8;border-radius:18px;box-shadow:0 14px 40px rgba(13,47,74,.10);overflow:hidden}
+    .hero{background:linear-gradient(135deg,var(--navy2),var(--navy));color:#fff;padding:28px 30px;border-bottom:4px solid var(--gold)}
+    .hero h1{margin:0;font-size:25px}.hero p{margin:8px 0 0;color:#e9eef4;font-size:14px}.notice{background:#fff9e8;border:1px solid #ead699;margin:18px 30px;padding:12px 14px;border-radius:12px;color:#5f4b12;font-size:14px}
+    form{padding:0 30px 30px}.step{display:none}.step.active{display:block}.step h2{font-size:20px;color:var(--navy);border-bottom:2px solid var(--gold);padding-bottom:8px;margin:22px 0 18px}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.full{grid-column:1/-1}.field label{display:block;font-weight:700;margin-bottom:5px;color:#22303d}.req{color:var(--err)}
+    input,select,textarea{width:100%;border:1px solid var(--line);border-radius:10px;padding:11px 12px;font-family:inherit;font-size:14px;background:#fff;outline:none}textarea{min-height:96px;resize:vertical}input:focus,select:focus,textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(200,169,104,.18)}
+    .progress{padding:22px 30px 0}.bar{height:8px;background:#e8edf2;border-radius:999px;overflow:hidden}.bar span{display:block;height:100%;width:20%;background:linear-gradient(90deg,var(--gold),#e4c985);transition:.25s}.steps{text-align:center;color:var(--muted);font-size:13px;margin-top:8px}
+    .actions{display:flex;justify-content:space-between;gap:12px;margin-top:24px}.btn{border:0;border-radius:10px;padding:12px 22px;font-weight:700;cursor:pointer;font-family:inherit}.primary{background:var(--navy);color:#fff}.secondary{background:#eef2f5;color:#24313f}.gold{background:var(--gold);color:#082033}.btn:disabled{opacity:.55;cursor:not-allowed}
+    .msg{display:none;margin-top:18px;border-radius:12px;padding:14px}.msg.ok{display:block;background:#ecfdf3;color:var(--ok);border:1px solid #abefc6}.msg.err{display:block;background:#fef3f2;color:var(--err);border:1px solid #fecdca}
+    .small{font-size:12px;color:var(--muted);margin-top:5px}.footer{padding:16px 30px;background:#fafafa;color:#667085;font-size:12px;text-align:center;border-top:1px solid #eee}
+    @media(max-width:760px){.grid{grid-template-columns:1fr}.hero,form,.progress{padding-left:18px;padding-right:18px}.notice{margin-left:18px;margin-right:18px}.hero h1{font-size:21px}.actions{flex-direction:column-reverse}.btn{width:100%}}
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card">
+    <div class="hero">
+      <h1>استمارة تحديث الملف العلمي للتدريسيين</h1>
+      <p>قسم هندسة الاتصالات - كلية الهندسة - جامعة ديالى</p>
+    </div>
+    <div class="notice">يرجى تعبئة البيانات بدقة. تستخدم المعلومات لأغراض التوثيق الداخلي وضمان الجودة والاعتماد الأكاديمي.</div>
+    <div class="progress"><div class="bar"><span id="bar"></span></div><div class="steps" id="stepText">الخطوة 1 من 5</div></div>
+
+    <form id="facultyForm">
+      <div class="step active">
+        <h2>1. المعلومات الأساسية</h2>
+        <div class="grid">
+          <div class="field"><label>الاسم بالعربية <span class="req">*</span></label><input name="name_ar" required></div>
+          <div class="field"><label>الاسم بالإنجليزية <span class="req">*</span></label><input name="name_en" required></div>
+          <div class="field"><label>اسم النشر العلمي</label><input name="publication_name" placeholder="مثال: Yassir AL-Karawi"></div>
+          <div class="field"><label>البريد الجامعي <span class="req">*</span></label><input name="university_email" type="email" required pattern=".+@uodiyala\.edu\.iq" placeholder="name@uodiyala.edu.iq"><div class="small">يجب استخدام البريد الجامعي.</div></div>
+          <div class="field"><label>رقم الموبايل</label><input name="mobile" inputmode="tel"></div>
+          <div class="field"><label>اللغات</label><input name="languages" placeholder="العربية، الإنجليزية..."></div>
+        </div>
+      </div>
+
+      <div class="step">
+        <h2>2. المعلومات الأكاديمية والوظيفية</h2>
+        <div class="grid">
+          <div class="field"><label>اللقب العلمي <span class="req">*</span></label><select name="title" required><option value="">اختر</option><option>مدرس مساعد</option><option>مدرس</option><option>أستاذ مساعد</option><option>أستاذ</option></select></div>
+          <div class="field"><label>أعلى شهادة <span class="req">*</span></label><select name="degree" required><option value="">اختر</option><option>دكتوراه</option><option>ماجستير</option><option>بكالوريوس</option></select></div>
+          <div class="field"><label>جهة الشهادة</label><input name="degree_source" placeholder="الجامعة - الدولة - السنة"></div>
+          <div class="field"><label>تاريخ آخر ترقية</label><input name="last_promotion" placeholder="مثال: 2022"></div>
+          <div class="field"><label>التخصص العام <span class="req">*</span></label><input name="general_spec" required placeholder="مثال: هندسة الاتصالات"></div>
+          <div class="field"><label>التخصص الدقيق <span class="req">*</span></label><input name="specialization" required placeholder="مثال: الاتصالات اللاسلكية"></div>
+          <div class="field full"><label>الاهتمامات البحثية</label><textarea name="research_interests" placeholder="اكتب أهم 3-6 مجالات بحثية"></textarea></div>
+          <div class="field full"><label>مجالات الإشراف</label><textarea name="supervision_areas"></textarea></div>
+        </div>
+      </div>
+
+      <div class="step">
+        <h2>3. الخبرة والحالة الوظيفية</h2>
+        <div class="grid">
+          <div class="field"><label>تاريخ التعيين بالقسم</label><input name="appointment_date" placeholder="مثال: 2015-09-01"></div>
+          <div class="field"><label>تاريخ بدء العمل الأكاديمي</label><input name="first_appointment"></div>
+          <div class="field"><label>سنوات الخبرة</label><input name="years_experience" inputmode="numeric"></div>
+          <div class="field"><label>الحالة الوظيفية</label><select name="employment_status"><option value="">اختر</option><option>ملاك دائم</option><option>عقد</option><option>منتسب</option><option>متفرغ جزئياً</option></select></div>
+          <div class="field"><label>الحالة الحالية بالقسم</label><select name="current_status"><option value="">اختر</option><option>على رأس العمل</option><option>إيفاد/بعثة</option><option>إجازة دراسية</option><option>تنسيب خارج القسم</option></select></div>
+        </div>
+      </div>
+
+      <div class="step">
+        <h2>4. الشهادات الجامعية</h2>
+        <div class="grid">
+          <div class="field"><label>البكالوريوس - التخصص</label><input name="bachelor_specialization"></div>
+          <div class="field"><label>البكالوريوس - الجامعة</label><input name="bachelor_university"></div>
+          <div class="field"><label>البكالوريوس - الدولة</label><input name="bachelor_country"></div>
+          <div class="field"><label>البكالوريوس - سنة الشهادة</label><input name="bachelor_year" inputmode="numeric"></div>
+          <div class="field"><label>حصل على الماجستير؟</label><select name="has_master"><option value="">اختر</option><option>نعم</option><option>لا</option></select></div>
+          <div class="field"><label>الماجستير - التخصص</label><input name="master_specialization"></div>
+          <div class="field"><label>الماجستير - الجامعة</label><input name="master_university"></div>
+          <div class="field"><label>الماجستير - الدولة</label><input name="master_country"></div>
+          <div class="field"><label>الماجستير - سنة الشهادة</label><input name="master_year" inputmode="numeric"></div>
+          <div class="field full"><label>الماجستير - عنوان الرسالة</label><textarea name="master_thesis"></textarea></div>
+          <div class="field"><label>حصل على الدكتوراه؟</label><select name="has_phd"><option value="">اختر</option><option>نعم</option><option>لا</option></select></div>
+          <div class="field"><label>الدكتوراه - التخصص</label><input name="phd_specialization"></div>
+          <div class="field"><label>الدكتوراه - الجامعة</label><input name="phd_university"></div>
+          <div class="field"><label>الدكتوراه - الدولة</label><input name="phd_country"></div>
+          <div class="field"><label>الدكتوراه - سنة الشهادة</label><input name="phd_year" inputmode="numeric"></div>
+          <div class="field full"><label>الدكتوراه - عنوان الأطروحة</label><textarea name="phd_thesis"></textarea></div>
+        </div>
+      </div>
+
+      <div class="step">
+        <h2>5. المعرفات والإنتاج العلمي</h2>
+        <div class="grid">
+          <div class="field"><label>ORCID</label><input name="orcid"></div>
+          <div class="field"><label>Google Scholar</label><input name="scholar_url"></div>
+          <div class="field"><label>Scopus ID</label><input name="scopus_id"></div>
+          <div class="field"><label>Web of Science ID</label><input name="wos_id"></div>
+          <div class="field"><label>ResearchGate</label><input name="researchgate"></div>
+          <div class="field"><label>LinkedIn</label><input name="linkedin"></div>
+          <div class="field"><label>إجمالي المنشورات</label><input name="total_publications" inputmode="numeric"></div>
+          <div class="field"><label>منشورات Scopus</label><input name="scopus_pubs" inputmode="numeric"></div>
+          <div class="field"><label>منشورات WoS</label><input name="wos_pubs" inputmode="numeric"></div>
+          <div class="field"><label>H-index Scholar</label><input name="h_scholar" inputmode="numeric"></div>
+          <div class="field"><label>H-index Scopus</label><input name="h_scopus" inputmode="numeric"></div>
+          <div class="field"><label>الاستشهادات</label><input name="citations" inputmode="numeric"></div>
+          <div class="field"><label>الكتب/فصول الكتب</label><input name="books_chapters"></div>
+          <div class="field"><label>براءات الاختراع</label><input name="patents"></div>
+          <div class="field full"><label>المشاريع البحثية الممولة</label><textarea name="funded_projects"></textarea></div>
+          <div class="field full"><label>عضوية اللجان</label><textarea name="committees"></textarea></div>
+          <div class="field full"><label>التحكيم العلمي</label><textarea name="reviewing"></textarea></div>
+          <div class="field full"><label>الإشراف على الدراسات العليا</label><textarea name="supervision"></textarea></div>
+          <div class="field full"><label>المؤتمرات والورش</label><textarea name="conferences"></textarea></div>
+          <div class="field full"><label>الجوائز والتكريم</label><textarea name="awards"></textarea></div>
+          <div class="field full"><label>ملاحظات إضافية</label><textarea name="notes"></textarea></div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button type="button" class="btn secondary" id="prevBtn">السابق</button>
+        <button type="button" class="btn primary" id="nextBtn">التالي</button>
+        <button type="submit" class="btn gold" id="submitBtn" style="display:none">إرسال البيانات</button>
+      </div>
+      <div id="message" class="msg"></div>
+    </form>
+    <div class="footer">للاستخدام الداخلي في قسم هندسة الاتصالات - كلية الهندسة - جامعة ديالى</div>
+  </div>
+</div>
+
+<script>
+  const APPS_SCRIPT_URL = 'https://script.google.com/a/macros/uodiyala.edu.iq/s/AKfycbzuKhy_Pkii94I0S44ppEbis0Al4kbmg1rTpNwwuQZ7IQ4qc4dhr42F1oLO7QWsCI_E/exec';
+  const SUBMIT_TOKEN = 'CHANGE_THIS_TOKEN_2026';
+  let current = 0;
+  const steps = Array.from(document.querySelectorAll('.step'));
+  const bar = document.getElementById('bar');
+  const stepText = document.getElementById('stepText');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const submitBtn = document.getElementById('submitBtn');
+  const message = document.getElementById('message');
+
+  function showStep(i){
+    steps.forEach((s,idx)=>s.classList.toggle('active',idx===i));
+    bar.style.width = ((i+1)/steps.length*100) + '%';
+    stepText.textContent = 'الخطوة ' + (i+1) + ' من ' + steps.length;
+    prevBtn.style.display = i===0 ? 'none' : 'inline-block';
+    nextBtn.style.display = i===steps.length-1 ? 'none' : 'inline-block';
+    submitBtn.style.display = i===steps.length-1 ? 'inline-block' : 'none';
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+  function validateCurrent(){
+    const required = Array.from(steps[current].querySelectorAll('[required]'));
+    for(const el of required){
+      if(!el.checkValidity()){ el.reportValidity(); return false; }
+    }
+    return true;
+  }
+  nextBtn.onclick = () => { if(validateCurrent() && current < steps.length-1){ current++; showStep(current); } };
+  prevBtn.onclick = () => { if(current > 0){ current--; showStep(current); } };
+  showStep(current);
+
+  document.getElementById('facultyForm').addEventListener('submit', async function(e){
+    e.preventDefault();
+    if(!validateCurrent()) return;
+    if(APPS_SCRIPT_URL.includes('https://script.google.com/a/macros/uodiyala.edu.iq/s/AKfycbzuKhy_Pkii94I0S44ppEbis0Al4kbmg1rTpNwwuQZ7IQ4qc4dhr42F1oLO7QWsCI_E/exec')){
+      showMessage('err','لم يتم ربط رابط Google Apps Script داخل ملف HTML بعد.'); return;
+    }
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'جاري الإرسال...';
+    const fd = new FormData(e.target);
+    const payload = Object.fromEntries(fd.entries());
+    payload.token = SUBMIT_TOKEN;
+    payload.timestamp = new Date().toISOString();
+    try{
+      const res = await fetch(APPS_SCRIPT_URL, { method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify(payload) });
+      const text = await res.text();
+      let out = {}; try { out = JSON.parse(text); } catch(err) {}
+      if(out.status === 'success'){
+        showMessage('ok','تم إرسال البيانات بنجاح. رقم السجل: ' + out.recordId);
+        e.target.reset(); current = 0; showStep(current);
+      } else if(out.status === 'duplicate'){
+        showMessage('err', out.message || 'هذا البريد مسجل مسبقاً.');
+      } else {
+        showMessage('err', out.message || 'تعذر الإرسال. يرجى المحاولة لاحقاً.');
+      }
+    }catch(err){
+      showMessage('err','حدث خطأ في الاتصال. تحقق من الرابط أو أعد المحاولة.');
+    }finally{
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'إرسال البيانات';
+    }
+  });
+  function showMessage(type, txt){
+    message.className = 'msg ' + type;
+    message.textContent = txt;
+  }
+</script>
+</body>
+</html>
