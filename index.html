@@ -11,15 +11,16 @@
 
 <style>
 :root {
-  --navy-darkest: #0A1F33;
-  --navy-dark: #0D2F4A;
-  --navy: #1A3F5C;
-  --navy-light: #2C5F8D;
-  --gold: #C8A968;
-  --gold-light: #D4B87A;
-  --gold-dark: #9A7B3A;
-  --cream: #F5EFE0;
-  --cream-light: #FAF6EC;
+  --navy-darkest: #061B30;
+  --navy-dark: #0A2845;
+  --navy: #15395A;
+  --navy-light: #2E5B8A;
+  --gold: #D4AF6A;
+  --gold-light: #E4C685;
+  --gold-dark: #A08148;
+  --gold-pale: #F0E0BC;
+  --cream: #F8F3E6;
+  --cream-light: #FCF8EE;
   --paper: #FFFBF3;
   --ink: #1C1917;
   --ink-soft: #44403C;
@@ -77,9 +78,12 @@ body::before {
 
 /* ============ HEADER ============ */
 .header {
-  background: linear-gradient(135deg, var(--navy-darkest) 0%, var(--navy-dark) 50%, var(--navy) 100%);
+  background: 
+    radial-gradient(ellipse 800px 400px at center top, rgba(212,175,106,0.10) 0%, transparent 60%),
+    radial-gradient(ellipse 600px 300px at center bottom, rgba(212,175,106,0.06) 0%, transparent 70%),
+    linear-gradient(135deg, var(--navy-darkest) 0%, var(--navy-dark) 50%, var(--navy) 100%);
   color: var(--cream);
-  padding: 3rem 0 4rem;
+  padding: 3.5rem 0 4.5rem;
   position: relative;
   overflow: hidden;
   border-bottom: 3px solid var(--gold);
@@ -115,14 +119,14 @@ body::before {
   display: inline-flex;
   align-items: center;
   gap: 1rem;
-  padding: 0.75rem 1.5rem 0.75rem 0.75rem;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(200,169,104,0.35);
-  border-radius: 60px;
+  padding: 0.85rem 1.6rem 0.85rem 0.95rem;
+  background: linear-gradient(135deg, rgba(10,40,69,0.7), rgba(21,57,90,0.5));
+  border: 1px solid rgba(212,175,106,0.4);
+  border-radius: 100px;
+  margin-bottom: 2rem;
   backdrop-filter: blur(10px);
-  margin-bottom: 1.75rem;
-  animation: fadeInDown 0.8s ease-out;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3), inset 0 1px 0 rgba(228,198,133,0.15);
+  position: relative;
 }
 
 .college-logo {
@@ -165,31 +169,47 @@ body::before {
 }
 
 .eyebrow {
-  font-family: var(--font-accent);
-  font-style: italic;
-  font-size: 0.9rem;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 0.5em;
   color: var(--gold-light);
-  letter-spacing: 4px;
   text-transform: uppercase;
-  margin-bottom: 1rem;
-  animation: fadeIn 1s ease-out 0.3s backwards;
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+  font-style: italic;
+  padding-bottom: 1rem;
+  position: relative;
+}
+
+.eyebrow::after {
+  content: '';
+  display: block;
+  width: 70px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+  margin: 1rem auto 0;
 }
 
 .main-title {
   font-family: var(--font-display);
-  font-size: clamp(1.9rem, 4.8vw, 3.2rem);
+  font-size: clamp(2.8rem, 6.5vw, 4.5rem);
   font-weight: 700;
   color: var(--cream-light);
-  line-height: 1.2;
-  margin-bottom: 1rem;
-  letter-spacing: -0.5px;
-  animation: fadeInUp 0.8s ease-out 0.4s backwards;
+  line-height: 1.15;
+  margin: 0 0 1.5rem;
+  letter-spacing: 0.01em;
+  text-shadow: 0 4px 30px rgba(0,0,0,0.4), 0 0 60px rgba(212,175,106,0.15);
 }
 
 .main-title .accent {
   color: var(--gold-light);
-  font-family: var(--font-accent);
   font-style: italic;
+  font-weight: 400;
+  background: linear-gradient(135deg, #F0E0BC 0%, #E4C685 50%, #D4AF6A 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 8px rgba(212,175,106,0.3));
 }
 
 .subtitle {
@@ -211,14 +231,23 @@ body::before {
 }
 
 .ornament .line {
-  width: 60px;
+  flex: 1;
+  max-width: 100px;
   height: 1px;
-  background: linear-gradient(to right, transparent, var(--gold-light), transparent);
+  background: linear-gradient(to right, transparent, var(--gold-light) 50%, transparent);
+  position: relative;
 }
 
 .ornament .diamond {
+  font-size: 0.9rem;
   color: var(--gold-light);
-  font-size: 0.7rem;
+  text-shadow: 0 0 15px rgba(228,198,133,0.6);
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% { opacity: 0.75; transform: scale(1); text-shadow: 0 0 10px rgba(228,198,133,0.4); }
+  50% { opacity: 1; transform: scale(1.15); text-shadow: 0 0 20px rgba(228,198,133,0.8); }
 }
 
 .reference-tag {
@@ -950,7 +979,7 @@ main {
 
         <div class="info-box">
           <div class="info-box-title">🔒 خصوصية البيانات</div>
-          <div class="info-box-text">جميع البيانات سرية وللاستخدام الرسمي فقط ضمن قسم هندسة الاتصالات.</div>
+          <div class="info-box-text">جميع البيانات سرية ومحفوظة بأمان. تُستخدم فقط للأغراض الرسمية للقسم.</div>
         </div>
 
         <div class="field-group">
@@ -1017,7 +1046,7 @@ main {
 
         <div class="field-group">
           <label class="field-label">تاريخ آخر ترقية علمية <span class="required">*</span></label>
-          <span class="field-hint">مثال: 15/3/2022 — اكتب "لا توجد" إذا لم تحصل على ترقية بعد</span>
+          <span class="field-hint">مثال: 15/3/2022 — اكتب "لا يوجد" إذا لم تحصل على ترقية بعد</span>
           <input type="text" class="text-input" name="last_promotion" required>
           <span class="field-error">هذا الحقل مطلوب</span>
         </div>
@@ -1114,7 +1143,7 @@ main {
 
         <div class="field-group">
           <label class="field-label">تواريخ الترقيات السابقة <span class="required">*</span></label>
-          <span class="field-hint">اذكر كل ترقية في سطر منفصل. مثال:<br>مدرس مساعد → مدرس: 10/2018<br>مدرس → أستاذ مساعد: 5/2022<br>اكتب "لا توجد" إن لم تحصل على أي ترقية</span>
+          <span class="field-hint">اذكر كل ترقية في سطر منفصل. اكتب "لا يوجد" إن لم تحصل على أي ترقية. مثال:<br>مدرس مساعد → مدرس: 10/2018<br>مدرس → أستاذ مساعد: 5/2022<br>اكتب "لا توجد" إن لم تحصل على أي ترقية</span>
           <textarea class="textarea-input" name="promotions_history" rows="2" required></textarea>
           <span class="field-error">هذا الحقل مطلوب</span>
         </div>
@@ -1191,10 +1220,9 @@ main {
         </div>
 
         <div class="field-group">
-          <label class="field-label">القسم/الجامعة الأصلية (إذا كنت منتدباً أو معاراً) <span class="required">*</span></label>
+          <label class="field-label">القسم/الجامعة الأصلية (إذا كنت منتدباً أو معاراً)</label>
           <span class="field-hint">اتركه فارغاً إذا كنت ضمن كادر قسم هندسة الاتصالات</span>
-          <input type="text" class="text-input" name="original_department" required placeholder="مثال: قسم الهندسة الكهربائية - كلية الهندسة">
-          <span class="field-error">هذا الحقل مطلوب</span>
+          <input type="text" class="text-input" name="original_department" placeholder="مثال: قسم الهندسة الكهربائية - كلية الهندسة">
         </div>
 
         <div class="nav-buttons">
@@ -1408,7 +1436,7 @@ main {
             <label class="field-label">
                             شهادات ما بعد الدكتوراه (Postdoc)
              <span class="required">*</span></label>
-            <span class="field-hint">المؤسسة، البلد، الفترة — اتركها فارغة إذا لا توجد</span>
+            <span class="field-hint">المؤسسة، البلد، الفترة. اكتب "لا يوجد" إن لم توجد</span>
             <textarea class="textarea-input" name="postdoc" required rows="2"></textarea>
           <span class="field-error">هذا الحقل مطلوب</span>
           </div>
@@ -1417,7 +1445,7 @@ main {
             <label class="field-label">
                             شهادات مهنية معتمدة
              <span class="required">*</span></label>
-            <span class="field-hint">مثال: CCNA, PMP, Cisco Certified — اتركها فارغة إذا لا توجد</span>
+            <span class="field-hint">مثال: CCNA, PMP. اكتب "لا يوجد" إن لم توجد</span>
             <textarea class="textarea-input" name="prof_certificates" required rows="2"></textarea>
           <span class="field-error">هذا الحقل مطلوب</span>
           </div>
@@ -1452,7 +1480,7 @@ main {
           <label class="field-label">
                           ORCID ID
            <span class="required">*</span></label>
-          <span class="field-hint">المعرّف العالمي الموحّد. مثال: 0000-0002-1825-0097<br>للحصول عليه مجاناً: orcid.org</span>
+          <span class="field-hint">مثال: 0000-0002-1825-0097 — اكتب "لا يوجد" إن لم يكن لديك (للحصول عليه: orcid.org)</span>
           <input type="text" class="text-input" name="orcid" required>
           <span class="field-error">هذا الحقل مطلوب</span>
         </div>
@@ -1461,7 +1489,7 @@ main {
           <label class="field-label">
                           رابط Google Scholar Profile
            <span class="required">*</span></label>
-          <span class="field-hint">مثال: scholar.google.com/citations?user=XXXXXX</span>
+          <span class="field-hint">مثال: مثال: scholar.google.com/citations?user=XXXXXX — اكتب "لا يوجد" إن لم يكن لديك</span>
           <input type="url" class="text-input" name="scholar_url" required placeholder="https://scholar.google.com/...">
           <span class="field-error">هذا الحقل مطلوب</span>
         </div>
@@ -1479,7 +1507,7 @@ main {
           <label class="field-label">
                           Web of Science ResearcherID
            <span class="required">*</span></label>
-          <span class="field-hint">مثال: A-1234-2020</span>
+          <span class="field-hint">مثال: A-1234-2020 — اكتب "لا يوجد" إن لم يكن لديك</span>
           <input type="text" class="text-input" name="wos_id" required>
           <span class="field-error">هذا الحقل مطلوب</span>
         </div>
@@ -1488,7 +1516,7 @@ main {
           <label class="field-label">
                           رابط ResearchGate
            <span class="required">*</span></label>
-          <span class="field-hint">مثال: researchgate.net/profile/Your-Name</span>
+          <span class="field-hint">مثال: researchgate.net/profile/Your-Name — اكتب "لا يوجد" إن لم يكن لديك</span>
           <input type="url" class="text-input" name="researchgate" required placeholder="https://researchgate.net/...">
           <span class="field-error">هذا الحقل مطلوب</span>
         </div>
@@ -1604,14 +1632,14 @@ main {
 
         <div class="field-group">
           <label class="field-label">المشاريع البحثية الممولة <span class="required">*</span></label>
-          <span class="field-hint">العدد + الجهات الممولة (إن وُجدت) — اكتب "لا توجد"</span>
+          <span class="field-hint">اذكر المشاريع الممولة. اكتب "لا يوجد" إن لم توجد</span>
           <textarea class="textarea-input" name="funded_projects" rows="2" required></textarea>
           <span class="field-error">هذا الحقل مطلوب</span>
         </div>
 
         <div class="field-group">
           <label class="field-label">العقود الاستشارية <span class="required">*</span></label>
-          <span class="field-hint">العدد + الجهات — اكتب "لا توجد"</span>
+          <span class="field-hint">اذكر العقود. اكتب "لا يوجد" إن لم توجد</span>
           <textarea class="textarea-input" name="consulting" rows="2" required></textarea>
           <span class="field-error">هذا الحقل مطلوب</span>
         </div>
@@ -1620,49 +1648,49 @@ main {
 
         <div class="field-group">
           <label class="field-label">عضوية لجان (قسم/كلية/جامعة) <span class="required">*</span></label>
-          <span class="field-hint">اذكرها بإيجاز — اكتب "لا توجد"</span>
+          <span class="field-hint">اذكر اللجان. اكتب "لا يوجد" إن لم توجد</span>
           <textarea class="textarea-input" name="committees" rows="2" required></textarea>
           <span class="field-error">هذا الحقل مطلوب</span>
         </div>
 
         <div class="field-group">
           <label class="field-label">عضوية لجان وزارية <span class="required">*</span></label>
-          <span class="field-hint">اكتب "لا توجد" إن لم توجد</span>
+          <span class="field-hint">اذكر اللجان الوزارية. اكتب "لا يوجد" إن لم توجد</span>
           <textarea class="textarea-input" name="ministerial_committees" rows="2" required></textarea>
           <span class="field-error">هذا الحقل مطلوب</span>
         </div>
 
         <div class="field-group">
           <label class="field-label">التحكيم العلمي (مجلات/مؤتمرات) <span class="required">*</span></label>
-          <span class="field-hint">أسماء المجلات والمؤتمرات التي حكّمت لها — اكتب "لا أمارس"</span>
+          <span class="field-hint">اذكر المجلات/المؤتمرات. اكتب "لا يوجد" إن لم تحكّم</span>
           <textarea class="textarea-input" name="reviewing" rows="2" required></textarea>
           <span class="field-error">هذا الحقل مطلوب</span>
         </div>
 
         <div class="field-group">
           <label class="field-label">التحرير العلمي (Editor) <span class="required">*</span></label>
-          <span class="field-hint">المجلات التي أنت محرر فيها — اكتب "لا توجد"</span>
+          <span class="field-hint">اذكر المجلات. اكتب "لا يوجد" إن لم تكن محرراً</span>
           <textarea class="textarea-input" name="editorial" rows="2" required></textarea>
           <span class="field-error">هذا الحقل مطلوب</span>
         </div>
 
         <div class="field-group">
           <label class="field-label">الإشراف على الدراسات العليا <span class="required">*</span></label>
-          <span class="field-hint">عدد طلبة الماجستير + الدكتوراه (حالياً وسابقاً) — اكتب "لا يوجد"</span>
+          <span class="field-hint">اذكر عدد الطلبة. اكتب "لا يوجد" إن لم تشرف</span>
           <input type="text" class="text-input" name="supervision" placeholder="مثال: 3 ماجستير (مكتملين) + 2 دكتوراه (حالياً)" required>
           <span class="field-error">هذا الحقل مطلوب</span>
         </div>
 
         <div class="field-group">
           <label class="field-label">المؤتمرات المُلقاة (Keynote/Invited) <span class="required">*</span></label>
-          <span class="field-hint">المؤتمرات التي أُلقيت فيها كلمات رئيسية — اكتب "لا توجد"</span>
+          <span class="field-hint">اذكر المؤتمرات. اكتب "لا يوجد" إن لم تُلقِ</span>
           <textarea class="textarea-input" name="keynotes" rows="2" required></textarea>
           <span class="field-error">هذا الحقل مطلوب</span>
         </div>
 
         <div class="field-group">
           <label class="field-label">الجوائز والتكريم <span class="required">*</span></label>
-          <span class="field-hint">الجوائز التي حصلت عليها — اكتب "لا توجد"</span>
+          <span class="field-hint">اذكر الجوائز. اكتب "لا يوجد" إن لم توجد</span>
           <textarea class="textarea-input" name="awards" rows="2" required></textarea>
           <span class="field-error">هذا الحقل مطلوب</span>
         </div>
@@ -1874,7 +1902,7 @@ async function submitForm() {
 
     if (result.status === 'duplicate') {
       loading.classList.remove('active');
-      alert(result.message || 'البريد مُسجّل مسبقاً.');
+      alert(result.message || 'هذا البريد الجامعي مُسجّل مسبقاً. يُرجى التواصل مع المسؤول للتعديل.');
       return;
     }
 
