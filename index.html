@@ -1016,31 +1016,6 @@ main {
         </div>
 
         <div class="field-group">
-          <label class="field-label">أعلى شهادة حصلت عليها <span class="required">*</span></label>
-          <div class="options-grid">
-            <label class="option-card">
-              <input type="radio" name="degree" value="دكتوراه" required>
-              <span class="option-card-label">دكتوراه (PhD)</span>
-            </label>
-            <label class="option-card">
-              <input type="radio" name="degree" value="ماجستير">
-              <span class="option-card-label">ماجستير (Master)</span>
-            </label>
-            <label class="option-card">
-              <input type="radio" name="degree" value="بكالوريوس">
-              <span class="option-card-label">بكالوريوس</span>
-            </label>
-          </div>
-        </div>
-
-        <div class="field-group">
-          <label class="field-label">جهة الحصول على أعلى شهادة <span class="required">*</span></label>
-          <span class="field-hint">مثال: جامعة بغداد - العراق - 2018</span>
-          <input type="text" class="text-input" name="degree_source" required>
-          <span class="field-error">هذا الحقل مطلوب</span>
-        </div>
-
-        <div class="field-group">
           <label class="field-label">تاريخ آخر ترقية علمية <span class="required">*</span></label>
           <span class="field-hint">مثال: 15/3/2022 — اكتب "لا توجد" إذا لم تحصل على ترقية بعد</span>
           <input type="text" class="text-input" name="last_promotion" required>
@@ -1888,18 +1863,30 @@ async function submitForm() {
   loading.classList.add('active');
 
   const data = collectFormData();
+  data.token = SECURITY_TOKEN;
+  data.formType = 'Faculty';
 
   try {
-    if (APPS_SCRIPT_URL && APPS_SCRIPT_URL !== 'https://script.google.com/macros/s/AKfycbxGgXgKxV51Vi8os8XqOsDH0b3nhIiH3sbxqVdbc-bDQNbmFuKrtij8TbkpTNN3_6wc/exec') {
-      await fetch(APPS_SCRIPT_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      });
-    } else {
-      console.log('📋 Form Data (Demo Mode):', data);
-      await new Promise(resolve => setTimeout(resolve, 1500));
+    const response = await fetch(APPS_SCRIPT_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(data)
+    });
+
+    const text = await response.text();
+    let result = {};
+    try { result = JSON.parse(text); } catch(e) { result = { status: 'success' }; }
+
+    if (result.status === 'error') {
+      loading.classList.remove('active');
+      alert(result.message || 'حدث خطأ في الإرسال.');
+      return;
+    }
+
+    if (result.status === 'duplicate') {
+      loading.classList.remove('active');
+      alert(result.message || 'البريد مُسجّل مسبقاً.');
+      return;
     }
 
     document.querySelectorAll('.step-card').forEach(card => card.classList.remove('active'));
