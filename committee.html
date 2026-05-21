@@ -1,0 +1,1801 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>استمارة اللجنة العلمية — قسم هندسة الاتصالات — جامعة ديالى</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&family=Amiri:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root {
+  --navy-darkest: #0A1F33;
+  --navy-dark: #0D2F4A;
+  --navy: #1A3F5C;
+  --navy-light: #2C5F8D;
+  --gold: #C8A968;
+  --gold-light: #D4B87A;
+  --gold-dark: #9A7B3A;
+  --cream: #F5EFE0;
+  --cream-light: #FAF6EC;
+  --paper: #FFFBF3;
+  --ink: #1C1917;
+  --ink-soft: #44403C;
+  --ash: #78716C;
+  --burgundy: #722F37;
+  --success: #2D6A4F;
+  --error: #9B2226;
+  --shadow-sm: 0 2px 8px rgba(13,47,74,0.08);
+  --shadow-md: 0 8px 24px rgba(13,47,74,0.12);
+  --shadow-lg: 0 20px 60px rgba(13,47,74,0.2);
+  --shadow-gold: 0 8px 32px rgba(200,169,104,0.3);
+  --font-body: 'Tajawal', system-ui, sans-serif;
+  --font-display: 'Amiri', serif;
+  --font-accent: 'Playfair Display', serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  line-height: 1.7;
+  color: var(--ink);
+  background: var(--paper);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(200,169,104,0.06) 0%, transparent 50%),
+    radial-gradient(circle at 85% 80%, rgba(26,63,92,0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+  animation: bgShift 15s ease-in-out infinite;
+}
+
+@keyframes bgShift {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-20px, -20px); }
+}
+
+.container {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* ============ HEADER ============ */
+.header {
+  background: linear-gradient(135deg, var(--navy-darkest) 0%, var(--navy-dark) 50%, var(--navy) 100%);
+  color: var(--cream);
+  padding: 3rem 0 4rem;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 3px solid var(--gold);
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(45deg, transparent, transparent 30px, rgba(200,169,104,0.03) 30px, rgba(200,169,104,0.03) 60px);
+  pointer-events: none;
+}
+
+.header::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: var(--paper);
+  clip-path: polygon(0 100%, 100% 100%, 100% 50%, 0 100%);
+}
+
+.header-inner {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.university-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1.5rem 0.75rem 0.75rem;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(200,169,104,0.35);
+  border-radius: 60px;
+  backdrop-filter: blur(10px);
+  margin-bottom: 1.75rem;
+  animation: fadeInDown 0.8s ease-out;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+}
+
+.college-logo {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: var(--cream-light);
+  padding: 5px;
+  box-shadow: 0 0 0 2px var(--gold), 0 0 0 4px var(--navy-dark), 0 6px 24px rgba(0,0,0,0.5);
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.badge-text {
+  text-align: right;
+  line-height: 1.4;
+}
+
+.badge-line1 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--cream-light);
+}
+
+.badge-line2 {
+  font-size: 0.7rem;
+  color: var(--gold-light);
+  letter-spacing: 1.5px;
+  margin-top: 0.1rem;
+}
+
+.badge-line3 {
+  font-size: 0.85rem;
+  color: var(--cream);
+  margin-top: 0.3rem;
+  font-weight: 500;
+  padding-top: 0.25rem;
+  border-top: 1px solid rgba(200,169,104,0.3);
+}
+
+.eyebrow {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--gold-light);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  animation: fadeIn 1s ease-out 0.3s backwards;
+}
+
+.main-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 4.8vw, 3.2rem);
+  font-weight: 700;
+  color: var(--cream-light);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  letter-spacing: -0.5px;
+  animation: fadeInUp 0.8s ease-out 0.4s backwards;
+}
+
+.main-title .accent {
+  color: var(--gold-light);
+  font-family: var(--font-accent);
+  font-style: italic;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: rgba(245,239,224,0.85);
+  max-width: 620px;
+  margin: 0 auto;
+  line-height: 1.8;
+  animation: fadeIn 1s ease-out 0.6s backwards;
+}
+
+.ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1.5rem 0 1rem;
+  opacity: 0.6;
+}
+
+.ornament .line {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold-light), transparent);
+}
+
+.ornament .diamond {
+  color: var(--gold-light);
+  font-size: 0.7rem;
+}
+
+.reference-tag {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.5rem 1.25rem;
+  background: rgba(200,169,104,0.1);
+  border: 1px solid rgba(200,169,104,0.3);
+  border-radius: 4px;
+  font-size: 0.85rem;
+  color: var(--gold-light);
+  font-family: var(--font-accent);
+  letter-spacing: 1px;
+  animation: fadeIn 1s ease-out 0.7s backwards;
+}
+
+/* ============ PROGRESS ============ */
+.progress-container {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--paper);
+  border-bottom: 1px solid rgba(200,169,104,0.2);
+  padding: 1rem 0;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+
+.progress-wrapper {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.progress-label {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+
+.progress-percent {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--gold-dark);
+}
+
+.progress-bar {
+  height: 4px;
+  background: rgba(26,63,92,0.08);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(to left, var(--gold), var(--gold-dark));
+  border-radius: 2px;
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.progress-fill::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.4) 50%, transparent 70%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ============ MAIN ============ */
+main {
+  padding: 3rem 0 5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.step-card {
+  background: var(--paper);
+  border: 1px solid rgba(200,169,104,0.2);
+  border-radius: 2px;
+  padding: 2.5rem 2.5rem;
+  box-shadow: var(--shadow-md);
+  position: relative;
+  display: none;
+  animation: slideIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.step-card.active { display: block; }
+
+.step-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(225deg, var(--gold) 50%, transparent 50%);
+  opacity: 0.15;
+}
+
+.step-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 60px;
+  background: linear-gradient(to bottom, var(--gold-dark), var(--gold));
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.step-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px dashed rgba(200,169,104,0.4);
+}
+
+.step-number {
+  display: inline-block;
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--gold-dark);
+  letter-spacing: 3px;
+  margin-bottom: 0.5rem;
+}
+
+.step-title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--navy-darkest);
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.step-description {
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.optional-badge {
+  display: inline-block;
+  margin-right: 0.5rem;
+  padding: 0.15rem 0.6rem;
+  background: rgba(45,106,79,0.1);
+  border: 1px solid rgba(45,106,79,0.3);
+  color: var(--success);
+  font-size: 0.7rem;
+  font-weight: 700;
+  border-radius: 3px;
+  vertical-align: middle;
+}
+
+/* ============ FORM ============ */
+.field-group {
+  margin-bottom: 1.5rem;
+}
+
+.field-label {
+  display: block;
+  font-weight: 700;
+  color: var(--navy-darkest);
+  margin-bottom: 0.4rem;
+  font-size: 0.92rem;
+}
+
+.field-label .required {
+  color: var(--burgundy);
+  margin-right: 0.25rem;
+}
+
+.field-label .optional-mark {
+  display: inline-block;
+  margin-right: 0.4rem;
+  padding: 0.05rem 0.5rem;
+  background: rgba(45,106,79,0.08);
+  border: 1px solid rgba(45,106,79,0.25);
+  color: var(--success);
+  font-size: 0.65rem;
+  font-weight: 600;
+  border-radius: 3px;
+  vertical-align: 2px;
+}
+
+.field-hint {
+  display: block;
+  color: var(--ash);
+  font-size: 0.78rem;
+  margin-bottom: 0.5rem;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.text-input,
+.select-input,
+.textarea-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--ink);
+  background: var(--cream-light);
+  border: 2px solid transparent;
+  border-bottom: 2px solid rgba(26,63,92,0.2);
+  border-radius: 4px 4px 0 0;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.text-input:focus,
+.select-input:focus,
+.textarea-input:focus {
+  outline: none;
+  background: var(--paper);
+  border-color: var(--gold);
+  box-shadow: 0 4px 16px rgba(200,169,104,0.15);
+}
+
+.textarea-input {
+  min-height: 90px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.select-input {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231A3F5C'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: left 1rem center;
+  background-size: 20px;
+  padding-left: 3rem;
+}
+
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.5rem;
+}
+
+.option-card {
+  position: relative;
+  cursor: pointer;
+}
+
+.option-card input[type="radio"],
+.option-card input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.option-card-label {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.75rem 0.9rem;
+  background: var(--cream-light);
+  border: 2px solid transparent;
+  border-radius: 4px;
+  font-size: 0.88rem;
+  color: var(--ink);
+  font-weight: 500;
+  transition: all 0.25s ease;
+  cursor: pointer;
+  line-height: 1.4;
+}
+
+.option-card-label::before {
+  content: '';
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--ash);
+  border-radius: 50%;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+  background: var(--paper);
+}
+
+.option-card input[type="checkbox"] + .option-card-label::before {
+  border-radius: 3px;
+}
+
+.option-card-label:hover {
+  background: var(--paper);
+  border-color: var(--gold);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.option-card input:checked + .option-card-label {
+  background: var(--navy-darkest);
+  color: var(--cream-light);
+  border-color: var(--gold);
+}
+
+.option-card input:checked + .option-card-label::before {
+  background: var(--gold);
+  border-color: var(--gold);
+  box-shadow: inset 0 0 0 3px var(--navy-darkest);
+}
+
+.option-card input[type="checkbox"]:checked + .option-card-label::before {
+  background: var(--gold);
+  border-color: var(--gold);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230A1F33'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 12px;
+  box-shadow: none;
+}
+
+/* ============ NAV ============ */
+.nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px dashed rgba(200,169,104,0.4);
+  gap: 1rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--navy-darkest), var(--navy-dark));
+  color: var(--cream-light);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.btn-primary:hover::before { opacity: 1; }
+.btn-primary span { position: relative; z-index: 1; }
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--navy-dark);
+  border: 2px solid rgba(26,63,92,0.3);
+}
+
+.btn-secondary:hover {
+  background: var(--navy-darkest);
+  color: var(--cream-light);
+  border-color: var(--navy-darkest);
+}
+
+.btn-submit {
+  background: linear-gradient(135deg, var(--success), #1F4F3A);
+  color: var(--cream-light);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 40px rgba(45,106,79,0.25);
+}
+
+.step-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+  margin-top: 2rem;
+}
+
+.step-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(26,63,92,0.2);
+  transition: all 0.3s ease;
+}
+
+.step-dot.active {
+  background: var(--gold);
+  width: 24px;
+  border-radius: 4px;
+}
+
+.step-dot.completed { background: var(--success); }
+
+/* ============ SUCCESS ============ */
+.success-screen {
+  text-align: center;
+  padding: 4rem 2.5rem;
+  display: none;
+  animation: zoomIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.success-screen.active { display: block; }
+
+@keyframes zoomIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.success-icon {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 2rem;
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  color: var(--paper);
+  box-shadow: var(--shadow-gold), 0 0 0 8px rgba(200,169,104,0.1), 0 0 0 16px rgba(200,169,104,0.05);
+  animation: successPulse 2s ease-in-out infinite;
+}
+
+@keyframes successPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.success-title {
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  color: var(--navy-darkest);
+  margin-bottom: 1rem;
+}
+
+.success-text {
+  color: var(--ink-soft);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  max-width: 500px;
+  margin: 0 auto 2rem;
+}
+
+.success-detail {
+  background: var(--cream-light);
+  padding: 1.5rem;
+  border-radius: 4px;
+  border-right: 3px solid var(--gold);
+  margin: 2rem auto;
+  max-width: 500px;
+  text-align: right;
+}
+
+.success-detail p {
+  margin: 0.5rem 0;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+.success-detail strong { color: var(--navy-dark); }
+
+/* ============ LOADING ============ */
+.loading-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(13,47,74,0.95);
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+  backdrop-filter: blur(10px);
+}
+
+.loading-overlay.active { display: flex; }
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 3px solid rgba(200,169,104,0.2);
+  border-top-color: var(--gold);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.loading-text {
+  color: var(--cream-light);
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  letter-spacing: 1px;
+}
+
+/* ============ ERROR ============ */
+.field-error {
+  color: var(--error);
+  font-size: 0.78rem;
+  margin-top: 0.3rem;
+  font-weight: 500;
+  display: none;
+}
+
+.field-group.error .text-input,
+.field-group.error .select-input,
+.field-group.error .textarea-input {
+  border-color: var(--error);
+  background: rgba(155,34,38,0.03);
+}
+
+.field-group.error .field-error { display: block; }
+
+/* ============ ANIMATIONS ============ */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============ DEGREE SECTIONS ============ */
+.degree-section {
+  background: linear-gradient(135deg, rgba(200,169,104,0.04), rgba(200,169,104,0.02));
+  border: 1px solid rgba(200,169,104,0.25);
+  border-right: 3px solid var(--gold);
+  border-radius: 4px;
+  padding: 1.5rem 1.25rem;
+  margin-bottom: 1.75rem;
+  position: relative;
+}
+
+.degree-section-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px dashed rgba(200,169,104,0.35);
+}
+
+.degree-icon {
+  font-size: 1.4rem;
+}
+
+.degree-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--navy-darkest);
+  flex: 1;
+}
+
+.degree-badge {
+  font-size: 0.7rem;
+  padding: 0.2rem 0.7rem;
+  background: var(--navy-dark);
+  color: var(--cream-light);
+  border-radius: 100px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.degree-section .field-group:last-child {
+  margin-bottom: 0;
+}
+
+/* ============ INFO BOX ============ */
+.info-box {
+  background: linear-gradient(135deg, rgba(200,169,104,0.08), rgba(200,169,104,0.04));
+  border-right: 3px solid var(--gold);
+  padding: 1rem 1.25rem;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+}
+
+.info-box-title {
+  font-weight: 700;
+  color: var(--navy-dark);
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.info-box-text {
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+/* ============ FOOTER ============ */
+.footer {
+  background: var(--navy-darkest);
+  color: rgba(245,239,224,0.6);
+  padding: 2rem 0;
+  text-align: center;
+  font-size: 0.85rem;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-ornament {
+  color: var(--gold);
+  margin: 0 0.75rem;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 640px) {
+  .container { padding: 0 1rem; }
+  .header { padding: 2rem 0 3rem; }
+  .step-card { padding: 1.75rem 1.25rem; }
+  .step-title { font-size: 1.3rem; }
+  .nav-buttons { flex-direction: column-reverse; }
+  .btn { width: 100%; justify-content: center; }
+  .options-grid { grid-template-columns: 1fr; }
+}
+
+
+/* ============ COMMITTEE SPECIFIC ============ */
+.section-stat-group {
+  background: linear-gradient(135deg, rgba(26,63,92,0.04), rgba(26,63,92,0.02));
+  border: 1px solid rgba(26,63,92,0.2);
+  border-right: 3px solid var(--navy);
+  border-radius: 4px;
+  padding: 1.5rem 1.25rem;
+  margin-bottom: 1.75rem;
+}
+
+.section-stat-group-header {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--navy-darkest);
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px dashed rgba(26,63,92,0.25);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.number-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.75rem;
+}
+
+@media (max-width: 640px) {
+  .number-row { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="header">
+  <div class="container">
+    <div class="header-inner">
+      <div class="university-badge">
+        <img src="data:image/webp;base64,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" alt="College Logo" class="college-logo">
+        <div class="badge-text">
+          <div class="badge-line1">كلية الهندسة — جامعة ديالى</div>
+          <div class="badge-line2">COLLEGE OF ENGINEERING</div>
+          <div class="badge-line3">قسم هندسة الاتصالات</div>
+        </div>
+      </div>
+
+      <div class="eyebrow">Scientific Committee</div>
+
+      <h1 class="main-title">
+        استمارة <span class="accent">اللجنة العلمية</span>
+      </h1>
+
+      <div class="ornament">
+        <span class="line"></span>
+        <span class="diamond">◆</span>
+        <span class="line"></span>
+      </div>
+
+      <p class="subtitle">
+        البيانات الإحصائية والاستراتيجية للقسم<br>
+        لإعداد التقارير المؤسسية وخطط النمو الأكاديمي
+      </p>
+
+      <div class="reference-tag">
+        لرئاسة القسم واللجنة العلمية ومسؤول ضمان الجودة
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ PROGRESS ============ -->
+<div class="progress-container">
+  <div class="progress-wrapper">
+    <div class="progress-info">
+      <span class="progress-label">الخطوة <span id="currentStep">1</span> من 9</span>
+      <span class="progress-percent" id="progressPercent">11%</span>
+    </div>
+    <div class="progress-bar">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ MAIN ============ -->
+<main>
+  <div class="container">
+    <form id="committeeForm">
+
+      <!-- ============ STEP 1: Member Info ============ -->
+      <div class="step-card active" data-step="1">
+        <div class="step-header">
+          <div class="step-number">— الخطوة 1 من 9 —</div>
+          <h2 class="step-title">بيانات عضو اللجنة</h2>
+          <p class="step-description">معلومات مُعبّئ الاستمارة لتوثيق المصدر الرسمي للبيانات.</p>
+        </div>
+
+        <div class="info-box">
+          <div class="info-box-title">💼 لمن هذه الاستمارة؟</div>
+          <div class="info-box-text">رئيس القسم، مقرر القسم، عضو لجنة علمية، أو مسؤول ضمان الجودة. تُعبّأ مرة واحدة من قبل شخص واحد.</div>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">الاسم الكامل <span class="required">*</span></label>
+          <span class="field-hint">مثال: ياسر أمين أحمد رشيد الكروي</span>
+          <input type="text" class="text-input" name="member_name" required>
+          <span class="field-error">هذا الحقل مطلوب</span>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">الصفة/المنصب الحالي <span class="required">*</span></label>
+          <select class="select-input" name="position" required>
+            <option value="">— اختر المنصب —</option>
+            <option value="رئيس القسم">رئيس القسم</option>
+            <option value="مقرر القسم">مقرر القسم</option>
+            <option value="مقرر اللجنة العلمية">مقرر اللجنة العلمية</option>
+            <option value="عضو اللجنة العلمية">عضو اللجنة العلمية</option>
+            <option value="مسؤول ضمان الجودة">مسؤول ضمان الجودة</option>
+            <option value="عضو لجنة الاعتماد">عضو لجنة الاعتماد المؤسسي</option>
+            <option value="أخرى">أخرى</option>
+          </select>
+          <span class="field-error">يُرجى اختيار المنصب</span>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">إذا اخترت "أخرى"، حدّدها</label>
+          <input type="text" class="text-input" name="position_other">
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">البريد الجامعي للتواصل <span class="required">*</span></label>
+          <span class="field-hint">مثال: yassir_al-karawi_eng@uodiyala.edu.iq</span>
+          <input type="email" class="text-input" name="email" required>
+          <span class="field-error">يُرجى إدخال بريد صحيح</span>
+        </div>
+
+        <div class="nav-buttons">
+          <div></div>
+          <button type="button" class="btn btn-primary" onclick="nextStep()"><span>التالي ←</span></button>
+        </div>
+      </div>
+
+      <!-- ============ STEP 2: Faculty Statistics ============ -->
+      <div class="step-card" data-step="2">
+        <div class="step-header">
+          <div class="step-number">— الخطوة 2 من 9 —</div>
+          <h2 class="step-title">إحصائيات الملاك التدريسي</h2>
+          <p class="step-description">الأعداد الإجمالية والتوزيع حسب الحالة الوظيفية.</p>
+        </div>
+
+        <div class="section-stat-group">
+          <div class="section-stat-group-header">📊 الأعداد الإجمالية</div>
+
+          <div class="number-row">
+            <div class="field-group" style="margin-bottom: 0.5rem;">
+              <label class="field-label">إجمالي عدد التدريسيين <span class="required">*</span></label>
+              <span class="field-hint">شامل الموفدين والإجازات</span>
+              <input type="number" class="text-input" name="total_faculty" min="0" required>
+              <span class="field-error">مطلوب</span>
+            </div>
+            <div class="field-group" style="margin-bottom: 0.5rem;">
+              <label class="field-label">الموجودين فعلياً (على رأس العمل) <span class="required">*</span></label>
+              <span class="field-hint">يُدرّسون حالياً</span>
+              <input type="number" class="text-input" name="active_faculty" min="0" required>
+              <span class="field-error">مطلوب</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-stat-group">
+          <div class="section-stat-group-header">✈️ الإجازات والإيفاد</div>
+
+          <div class="number-row">
+            <div class="field-group" style="margin-bottom: 0.5rem;">
+              <label class="field-label">موفدين خارج العراق <span class="required">*</span></label>
+              <span class="field-hint">دراسات عليا</span>
+              <input type="number" class="text-input" name="abroad_faculty" min="0" required>
+              <span class="field-error">مطلوب</span>
+            </div>
+            <div class="field-group" style="margin-bottom: 0.5rem;">
+              <label class="field-label">إجازة دراسية داخل العراق <span class="required">*</span></label>
+              <input type="number" class="text-input" name="local_leave" min="0" required>
+              <span class="field-error">مطلوب</span>
+            </div>
+            <div class="field-group" style="margin-bottom: 0.5rem;">
+              <label class="field-label">إجازات أخرى (طويلة) <span class="required">*</span></label>
+              <span class="field-hint">أمومة، مرضية، بدون راتب</span>
+              <input type="number" class="text-input" name="other_leave" min="0" required>
+              <span class="field-error">مطلوب</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-stat-group">
+          <div class="section-stat-group-header">🧑‍🔬 الكوادر المساندة</div>
+
+          <div class="number-row">
+            <div class="field-group" style="margin-bottom: 0.5rem;">
+              <label class="field-label">عدد المعيدين <span class="required">*</span></label>
+              <span class="field-hint">اكتب 0 إن لم يوجد</span>
+              <input type="number" class="text-input" name="assistants" min="0" required>
+              <span class="field-error">مطلوب</span>
+            </div>
+            <div class="field-group" style="margin-bottom: 0.5rem;">
+              <label class="field-label">عدد الفنيين <span class="required">*</span></label>
+              <span class="field-hint">في المختبرات</span>
+              <input type="number" class="text-input" name="technicians" min="0" required>
+              <span class="field-error">مطلوب</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-buttons">
+          <button type="button" class="btn btn-secondary" onclick="prevStep()">→ السابق</button>
+          <button type="button" class="btn btn-primary" onclick="nextStep()"><span>التالي ←</span></button>
+        </div>
+      </div>
+
+      <!-- ============ STEP 3: Title Distribution ============ -->
+      <div class="step-card" data-step="3">
+        <div class="step-header">
+          <div class="step-number">— الخطوة 3 من 9 —</div>
+          <h2 class="step-title">توزيع الألقاب العلمية</h2>
+          <p class="step-description">عدد التدريسيين في كل لقب علمي. مجموعهم يجب أن يطابق الإجمالي.</p>
+        </div>
+
+        <div class="info-box">
+          <div class="info-box-title">💡 تذكير</div>
+          <div class="info-box-text">المجموع يجب أن يساوي إجمالي عدد التدريسيين المُدخل في الخطوة 2.</div>
+        </div>
+
+        <div class="section-stat-group">
+          <div class="section-stat-group-header">🎓 توزيع الألقاب</div>
+
+          <div class="number-row">
+            <div class="field-group" style="margin-bottom: 0.5rem;">
+              <label class="field-label">عدد الأساتذة <span class="required">*</span></label>
+              <span class="field-hint">Professor</span>
+              <input type="number" class="text-input" name="professors" min="0" required>
+              <span class="field-error">مطلوب</span>
+            </div>
+            <div class="field-group" style="margin-bottom: 0.5rem;">
+              <label class="field-label">عدد الأساتذة المساعدين <span class="required">*</span></label>
+              <span class="field-hint">Assistant Professor</span>
+              <input type="number" class="text-input" name="asst_professors" min="0" required>
+              <span class="field-error">مطلوب</span>
+            </div>
+            <div class="field-group" style="margin-bottom: 0.5rem;">
+              <label class="field-label">عدد المدرسين <span class="required">*</span></label>
+              <span class="field-hint">Lecturer</span>
+              <input type="number" class="text-input" name="lecturers" min="0" required>
+              <span class="field-error">مطلوب</span>
+            </div>
+            <div class="field-group" style="margin-bottom: 0.5rem;">
+              <label class="field-label">عدد المدرسين المساعدين <span class="required">*</span></label>
+              <span class="field-hint">Assistant Lecturer</span>
+              <input type="number" class="text-input" name="asst_lecturers" min="0" required>
+              <span class="field-error">مطلوب</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-buttons">
+          <button type="button" class="btn btn-secondary" onclick="prevStep()">→ السابق</button>
+          <button type="button" class="btn btn-primary" onclick="nextStep()"><span>التالي ←</span></button>
+        </div>
+      </div>
+
+      <!-- ============ STEP 4: Degree Distribution ============ -->
+      <div class="step-card" data-step="4">
+        <div class="step-header">
+          <div class="step-number">— الخطوة 4 من 9 —</div>
+          <h2 class="step-title">توزيع الشهادات الأكاديمية</h2>
+          <p class="step-description">توزيع التدريسيين حسب أعلى شهادة + مكان الحصول عليها.</p>
+        </div>
+
+        <div class="section-stat-group">
+          <div class="section-stat-group-header">🎓 حاملو الدكتوراه</div>
+
+          <div class="number-row">
+            <div class="field-group" style="margin-bottom: 0.5rem;">
+              <label class="field-label">دكتوراه من داخل العراق <span class="required">*</span></label>
+              <input type="number" class="text-input" name="phd_iraq" min="0" required>
+              <span class="field-error">مطلوب</span>
+            </div>
+            <div class="field-group" style="margin-bottom: 0.5rem;">
+              <label class="field-label">دكتوراه من خارج العراق <span class="required">*</span></label>
+              <input type="number" class="text-input" name="phd_abroad" min="0" required>
+              <span class="field-error">مطلوب</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-stat-group">
+          <div class="section-stat-group-header">🎓 حاملو الماجستير</div>
+
+          <div class="number-row">
+            <div class="field-group" style="margin-bottom: 0.5rem;">
+              <label class="field-label">ماجستير من داخل العراق <span class="required">*</span></label>
+              <input type="number" class="text-input" name="msc_iraq" min="0" required>
+              <span class="field-error">مطلوب</span>
+            </div>
+            <div class="field-group" style="margin-bottom: 0.5rem;">
+              <label class="field-label">ماجستير من خارج العراق <span class="required">*</span></label>
+              <input type="number" class="text-input" name="msc_abroad" min="0" required>
+              <span class="field-error">مطلوب</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-buttons">
+          <button type="button" class="btn btn-secondary" onclick="prevStep()">→ السابق</button>
+          <button type="button" class="btn btn-primary" onclick="nextStep()"><span>التالي ←</span></button>
+        </div>
+      </div>
+
+      <!-- ============ STEP 5: Student Statistics ============ -->
+      <div class="step-card" data-step="5">
+        <div class="step-header">
+          <div class="step-number">— الخطوة 5 من 9 —</div>
+          <h2 class="step-title">إحصائيات الطلبة</h2>
+          <p class="step-description">أعداد الطلبة الحاليين في كل مرحلة دراسية.</p>
+        </div>
+
+        <div class="section-stat-group">
+          <div class="section-stat-group-header">👨‍🎓 المرحلة الجامعية الأولى (البكالوريوس)</div>
+
+          <div class="number-row">
+            <div class="field-group" style="margin-bottom: 0.5rem;">
+              <label class="field-label">المرحلة الأولى <span class="required">*</span></label>
+              <input type="number" class="text-input" name="stage1" min="0" required>
+              <span class="field-error">مطلوب</span>
+            </div>
+            <div class="field-group" style="margin-bottom: 0.5rem;">
+              <label class="field-label">المرحلة الثانية <span class="required">*</span></label>
+              <input type="number" class="text-input" name="stage2" min="0" required>
+              <span class="field-error">مطلوب</span>
+            </div>
+            <div class="field-group" style="margin-bottom: 0.5rem;">
+              <label class="field-label">المرحلة الثالثة <span class="required">*</span></label>
+              <input type="number" class="text-input" name="stage3" min="0" required>
+              <span class="field-error">مطلوب</span>
+            </div>
+            <div class="field-group" style="margin-bottom: 0.5rem;">
+              <label class="field-label">المرحلة الرابعة <span class="required">*</span></label>
+              <input type="number" class="text-input" name="stage4" min="0" required>
+              <span class="field-error">مطلوب</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-stat-group">
+          <div class="section-stat-group-header">🎓 الدراسات العليا</div>
+
+          <div class="number-row">
+            <div class="field-group" style="margin-bottom: 0.5rem;">
+              <label class="field-label">طلبة الماجستير <span class="required">*</span></label>
+              <span class="field-hint">اكتب 0 إن لم يوجد</span>
+              <input type="number" class="text-input" name="msc_students" min="0" required>
+              <span class="field-error">مطلوب</span>
+            </div>
+            <div class="field-group" style="margin-bottom: 0.5rem;">
+              <label class="field-label">طلبة الدكتوراه <span class="required">*</span></label>
+              <span class="field-hint">اكتب 0 إن لم يوجد</span>
+              <input type="number" class="text-input" name="phd_students" min="0" required>
+              <span class="field-error">مطلوب</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-buttons">
+          <button type="button" class="btn btn-secondary" onclick="prevStep()">→ السابق</button>
+          <button type="button" class="btn btn-primary" onclick="nextStep()"><span>التالي ←</span></button>
+        </div>
+      </div>
+
+      <!-- ============ STEP 6: Specializations ============ -->
+      <div class="step-card" data-step="6">
+        <div class="step-header">
+          <div class="step-number">— الخطوة 6 من 9 —</div>
+          <h2 class="step-title">التخصصات الدقيقة في القسم</h2>
+          <p class="step-description">عدد المتخصصين في كل مجال دقيق. اكتب 0 للتخصصات غير الموجودة.</p>
+        </div>
+
+        <div class="section-stat-group">
+          <div class="section-stat-group-header">🔬 توزيع التخصصات الدقيقة</div>
+
+          <div class="field-group">
+            <label class="field-label">الاتصالات اللاسلكية (Wireless) <span class="required">*</span></label>
+            <input type="number" class="text-input" name="spec_wireless" min="0" required>
+            <span class="field-error">مطلوب</span>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">الاتصالات الضوئية (Optical) <span class="required">*</span></label>
+            <input type="number" class="text-input" name="spec_optical" min="0" required>
+            <span class="field-error">مطلوب</span>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">شبكات الكمبيوتر (Networks) <span class="required">*</span></label>
+            <input type="number" class="text-input" name="spec_networks" min="0" required>
+            <span class="field-error">مطلوب</span>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">معالجة الإشارات (Signal Processing) <span class="required">*</span></label>
+            <input type="number" class="text-input" name="spec_dsp" min="0" required>
+            <span class="field-error">مطلوب</span>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">الميكروويف والهوائيات <span class="required">*</span></label>
+            <input type="number" class="text-input" name="spec_microwave" min="0" required>
+            <span class="field-error">مطلوب</span>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">الاتصالات الرقمية (Digital) <span class="required">*</span></label>
+            <input type="number" class="text-input" name="spec_digital" min="0" required>
+            <span class="field-error">مطلوب</span>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">الإلكترونيات (Electronics) <span class="required">*</span></label>
+            <input type="number" class="text-input" name="spec_electronics" min="0" required>
+            <span class="field-error">مطلوب</span>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">الذكاء الاصطناعي (AI) <span class="required">*</span></label>
+            <input type="number" class="text-input" name="spec_ai" min="0" required>
+            <span class="field-error">مطلوب</span>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">إنترنت الأشياء (IoT) <span class="required">*</span></label>
+            <input type="number" class="text-input" name="spec_iot" min="0" required>
+            <span class="field-error">مطلوب</span>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">أمن المعلومات (Cybersecurity) <span class="required">*</span></label>
+            <input type="number" class="text-input" name="spec_security" min="0" required>
+            <span class="field-error">مطلوب</span>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">تخصصات أخرى</label>
+            <span class="field-hint">اذكرها مع الأعداد. مثال: نظرية المعلومات: 2، الحوسبة السحابية: 1</span>
+            <textarea class="textarea-input" name="other_specs" rows="2" placeholder="اكتب التخصصات الأخرى مع أعدادها أو اتركه فارغاً"></textarea>
+          </div>
+        </div>
+
+        <div class="nav-buttons">
+          <button type="button" class="btn btn-secondary" onclick="prevStep()">→ السابق</button>
+          <button type="button" class="btn btn-primary" onclick="nextStep()"><span>التالي ←</span></button>
+        </div>
+      </div>
+
+      <!-- ============ STEP 7: Workload Analysis ============ -->
+      <div class="step-card" data-step="7">
+        <div class="step-header">
+          <div class="step-number">— الخطوة 7 من 9 —</div>
+          <h2 class="step-title">تحليل الاحتياج والأعباء</h2>
+          <p class="step-description">معلومات النصاب التدريسي وتقييم الوضع.</p>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">متوسط النصاب التدريسي الأسبوعي <span class="required">*</span></label>
+          <span class="field-hint">بالساعات لكل تدريسي (مثال: 12)</span>
+          <input type="number" class="text-input" name="avg_workload" min="0" step="0.5" required>
+          <span class="field-error">مطلوب</span>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">النصاب الأقصى المسموح <span class="required">*</span></label>
+          <span class="field-hint">حسب أنظمة الجامعة</span>
+          <input type="number" class="text-input" name="max_workload" min="0" required>
+          <span class="field-error">مطلوب</span>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">تقييم الوضع الحالي للملاك التدريسي <span class="required">*</span></label>
+          <div class="options-grid">
+            <label class="option-card">
+              <input type="radio" name="status_assessment" value="كافٍ ومتوازن" required>
+              <span class="option-card-label">كافٍ ومتوازن</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="status_assessment" value="كافٍ لكن نقص تخصصات">
+              <span class="option-card-label">كافٍ لكن نقص تخصصات</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="status_assessment" value="غير كافٍ عاجل">
+              <span class="option-card-label">غير كافٍ — يحتاج زيادة عاجلة</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="status_assessment" value="فيه فائض في بعض ونقص في أخرى">
+              <span class="option-card-label">توزيع غير متوازن</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">المقررات التي تعاني من نقص متخصصين <span class="required">*</span></label>
+          <span class="field-hint">اذكرها أو اكتب "لا يوجد"</span>
+          <textarea class="textarea-input" name="understaffed_courses" rows="2" required></textarea>
+          <span class="field-error">مطلوب</span>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">التحديات الرئيسية الحالية <span class="required">*</span></label>
+          <span class="field-hint">اذكر أهم 2-3 تحديات</span>
+          <textarea class="textarea-input" name="challenges" rows="3" required></textarea>
+          <span class="field-error">مطلوب</span>
+        </div>
+
+        <div class="nav-buttons">
+          <button type="button" class="btn btn-secondary" onclick="prevStep()">→ السابق</button>
+          <button type="button" class="btn btn-primary" onclick="nextStep()"><span>التالي ←</span></button>
+        </div>
+      </div>
+
+      <!-- ============ STEP 8: Future Plans ============ -->
+      <div class="step-card" data-step="8">
+        <div class="step-header">
+          <div class="step-number">— الخطوة 8 من 9 —</div>
+          <h2 class="step-title">الخطط المستقبلية (5 سنوات)</h2>
+          <p class="step-description">الرؤية الاستراتيجية للقسم وخطط النمو.</p>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">الخطط الاستراتيجية خلال 5 سنوات <span class="required">*</span></label>
+          <span class="field-hint">اختر كل ما ينطبق</span>
+          <div class="options-grid">
+            <label class="option-card">
+              <input type="checkbox" name="strategic_plans" value="فتح ماجستير">
+              <span class="option-card-label">فتح دراسة الماجستير</span>
+            </label>
+            <label class="option-card">
+              <input type="checkbox" name="strategic_plans" value="فتح دكتوراه">
+              <span class="option-card-label">فتح دراسة الدكتوراه</span>
+            </label>
+            <label class="option-card">
+              <input type="checkbox" name="strategic_plans" value="تخصص فرعي جديد">
+              <span class="option-card-label">إضافة تخصص فرعي</span>
+            </label>
+            <label class="option-card">
+              <input type="checkbox" name="strategic_plans" value="مختبرات بحثية">
+              <span class="option-card-label">فتح مختبرات بحثية</span>
+            </label>
+            <label class="option-card">
+              <input type="checkbox" name="strategic_plans" value="زيادة الطلبة">
+              <span class="option-card-label">زيادة أعداد المقبولين</span>
+            </label>
+            <label class="option-card">
+              <input type="checkbox" name="strategic_plans" value="مركز بحثي">
+              <span class="option-card-label">إنشاء مركز بحثي</span>
+            </label>
+            <label class="option-card">
+              <input type="checkbox" name="strategic_plans" value="اعتماد ABET">
+              <span class="option-card-label">الاعتماد الدولي ABET</span>
+            </label>
+            <label class="option-card">
+              <input type="checkbox" name="strategic_plans" value="شراكات دولية">
+              <span class="option-card-label">شراكات مع جامعات دولية</span>
+            </label>
+            <label class="option-card">
+              <input type="checkbox" name="strategic_plans" value="برامج صناعية">
+              <span class="option-card-label">برامج مع الصناعة</span>
+            </label>
+            <label class="option-card">
+              <input type="checkbox" name="strategic_plans" value="لا توسع">
+              <span class="option-card-label">لا توجد خطط توسعية</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">تفاصيل الخطط المستقبلية <span class="required">*</span></label>
+          <span class="field-hint">اشرح أهم الخطط ومتطلباتها من الملاك التدريسي</span>
+          <textarea class="textarea-input" name="plans_details" rows="3" required></textarea>
+          <span class="field-error">مطلوب</span>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">خطط زيادة عدد الطلبة <span class="required">*</span></label>
+          <div class="options-grid">
+            <label class="option-card">
+              <input type="radio" name="student_growth" value="زيادة كبيرة +50%" required>
+              <span class="option-card-label">زيادة كبيرة (+50%)</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="student_growth" value="زيادة متوسطة +25%">
+              <span class="option-card-label">زيادة متوسطة (+25%)</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="student_growth" value="زيادة طفيفة +10%">
+              <span class="option-card-label">زيادة طفيفة (+10%)</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="student_growth" value="الإبقاء على العدد">
+              <span class="option-card-label">الإبقاء على العدد الحالي</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="nav-buttons">
+          <button type="button" class="btn btn-secondary" onclick="prevStep()">→ السابق</button>
+          <button type="button" class="btn btn-primary" onclick="nextStep()"><span>التالي ←</span></button>
+        </div>
+      </div>
+
+      <!-- ============ STEP 9: Growth Plan ============ -->
+      <div class="step-card" data-step="9">
+        <div class="step-header">
+          <div class="step-number">— الخطوة الأخيرة 9 من 9 —</div>
+          <h2 class="step-title">خطة نمو الملاك المُقترحة</h2>
+          <p class="step-description">التعيينات المُقترحة للسنوات الخمس القادمة وأولوياتها.</p>
+        </div>
+
+        <div class="section-stat-group">
+          <div class="section-stat-group-header">📅 التعيينات المُقترحة سنوياً</div>
+
+          <div class="number-row">
+            <div class="field-group" style="margin-bottom: 0.5rem;">
+              <label class="field-label">عام 2026 <span class="required">*</span></label>
+              <input type="number" class="text-input" name="hires_2026" min="0" required>
+              <span class="field-error">مطلوب</span>
+            </div>
+            <div class="field-group" style="margin-bottom: 0.5rem;">
+              <label class="field-label">عام 2027 <span class="required">*</span></label>
+              <input type="number" class="text-input" name="hires_2027" min="0" required>
+              <span class="field-error">مطلوب</span>
+            </div>
+            <div class="field-group" style="margin-bottom: 0.5rem;">
+              <label class="field-label">عام 2028 <span class="required">*</span></label>
+              <input type="number" class="text-input" name="hires_2028" min="0" required>
+              <span class="field-error">مطلوب</span>
+            </div>
+            <div class="field-group" style="margin-bottom: 0.5rem;">
+              <label class="field-label">عام 2029-2030 <span class="required">*</span></label>
+              <input type="number" class="text-input" name="hires_2029_2030" min="0" required>
+              <span class="field-error">مطلوب</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">أولويات التعيين (التخصصات الأهم) <span class="required">*</span></label>
+          <span class="field-hint">رتّب التخصصات حسب الأولوية. مثال:&#10;1. الذكاء الاصطناعي (الأولوية القصوى)&#10;2. IoT و 5G&#10;3. أمن المعلومات</span>
+          <textarea class="textarea-input" name="hiring_priorities" rows="3" required></textarea>
+          <span class="field-error">مطلوب</span>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">المبررات لخطة النمو <span class="required">*</span></label>
+          <span class="field-hint">اشرح لماذا هذه الأعداد ولماذا هذه التخصصات</span>
+          <textarea class="textarea-input" name="justifications" rows="3" required></textarea>
+          <span class="field-error">مطلوب</span>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">توصيات إضافية للجامعة <span class="required">*</span></label>
+          <span class="field-hint">أي توصيات أخرى تودون إضافتها — اكتب "لا توجد" إن لم توجد</span>
+          <textarea class="textarea-input" name="recommendations" rows="3" required></textarea>
+          <span class="field-error">مطلوب</span>
+        </div>
+
+        <div class="nav-buttons">
+          <button type="button" class="btn btn-secondary" onclick="prevStep()">→ السابق</button>
+          <button type="button" class="btn btn-submit" onclick="submitForm()">
+            <span>🚀 إرسال البيانات</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- ============ SUCCESS ============ -->
+      <div class="success-screen" id="successScreen">
+        <div class="success-icon">✓</div>
+        <h2 class="success-title">شكراً جزيلاً!</h2>
+        <p class="success-text">
+          تم استلام بيانات اللجنة العلمية بنجاح.<br>
+          ستُسهم هذه البيانات في:<br>
+          • إعداد تقارير القسم الإحصائية<br>
+          • خطط النمو الأكاديمي للسنوات القادمة<br>
+          • التقارير الإدارية الرسمية<br>
+          • الأرشيف الاستراتيجي للقسم
+        </p>
+
+        <div class="success-detail">
+          <p><strong>تاريخ الإرسال:</strong> <span id="submitDate"></span></p>
+          <p><strong>رقم المرجع:</strong> <span id="submitRef"></span></p>
+          <p><strong>الحالة:</strong> ✅ تم الحفظ بنجاح</p>
+        </div>
+
+        <p class="success-text" style="font-size: 0.9rem; opacity: 0.7;">
+          إذا احتجنا توضيحاً، سنتواصل معكم عبر البريد المُسجَّل.<br>
+          لكم جزيل الشكر والتقدير.
+        </p>
+      </div>
+
+    </form>
+
+    <div class="step-dots" id="stepDots">
+      <div class="step-dot active"></div>
+      <div class="step-dot"></div>
+      <div class="step-dot"></div>
+      <div class="step-dot"></div>
+      <div class="step-dot"></div>
+      <div class="step-dot"></div>
+      <div class="step-dot"></div>
+      <div class="step-dot"></div>
+      <div class="step-dot"></div>
+    </div>
+  </div>
+</main>
+
+<div class="loading-overlay" id="loading">
+  <div class="spinner"></div>
+  <div class="loading-text">جارٍ إرسال البيانات...</div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div style="margin-bottom: 0.8rem; font-family: var(--font-display); color: var(--gold-light); font-size: 1rem;">
+      إعداد: أ.م.د. ياسر الأمين
+    </div>
+    <div>
+      لجنة ضمان الجودة <span class="footer-ornament">◆</span>
+      قسم هندسة الاتصالات <span class="footer-ornament">◆</span>
+      جامعة ديالى — 2026
+    </div>
+  </div>
+</footer>
+
+<script>
+const TOTAL_STEPS = 9;
+let currentStep = 1;
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxGgXgKxV51Vi8os8XqOsDH0b3nhIiH3sbxqVdbc-bDQNbmFuKrtij8TbkpTNN3_6wc/exec';
+const SECURITY_TOKEN = 'UODIYALA-COMM-ENG-90A7AA8F996485F6';
+
+function updateProgress() {
+  const percent = Math.round((currentStep / TOTAL_STEPS) * 100);
+  document.getElementById('progressFill').style.width = percent + '%';
+  document.getElementById('progressPercent').textContent = percent + '%';
+  document.getElementById('currentStep').textContent = currentStep;
+
+  const dots = document.querySelectorAll('.step-dot');
+  dots.forEach((dot, idx) => {
+    dot.classList.remove('active', 'completed');
+    if (idx + 1 < currentStep) dot.classList.add('completed');
+    if (idx + 1 === currentStep) dot.classList.add('active');
+  });
+}
+
+function showStep(step) {
+  document.querySelectorAll('.step-card').forEach(card => card.classList.remove('active'));
+  const target = document.querySelector(`.step-card[data-step="${step}"]`);
+  if (target) target.classList.add('active');
+  currentStep = step;
+  updateProgress();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function validateStep(step) {
+  const card = document.querySelector(`.step-card[data-step="${step}"]`);
+  if (!card) return true;
+
+  const requiredFields = card.querySelectorAll('[required]');
+  let isValid = true;
+
+  requiredFields.forEach(field => {
+    const group = field.closest('.field-group');
+    if (!group) return;
+
+    if (field.type === 'radio') {
+      const radioGroup = card.querySelectorAll(`input[name="${field.name}"]`);
+      const isChecked = Array.from(radioGroup).some(r => r.checked);
+      if (!isChecked) {
+        group.classList.add('error');
+        isValid = false;
+      } else {
+        group.classList.remove('error');
+      }
+    } else if (field.type === 'checkbox') {
+      const checkboxGroup = card.querySelectorAll(`input[name="${field.name}"]`);
+      const isChecked = Array.from(checkboxGroup).some(c => c.checked);
+      if (!isChecked) {
+        group.classList.add('error');
+        isValid = false;
+      } else {
+        group.classList.remove('error');
+      }
+    } else {
+      if (!field.value.trim()) {
+        group.classList.add('error');
+        isValid = false;
+      } else {
+        group.classList.remove('error');
+      }
+    }
+  });
+
+  return isValid;
+}
+
+function nextStep() {
+  if (!validateStep(currentStep)) {
+    const firstError = document.querySelector('.step-card.active .field-group.error');
+    if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+  if (currentStep < TOTAL_STEPS) showStep(currentStep + 1);
+}
+
+function prevStep() {
+  if (currentStep > 1) showStep(currentStep - 1);
+}
+
+function collectFormData() {
+  const form = document.getElementById('committeeForm');
+  const formData = new FormData(form);
+  const data = {};
+
+  for (let [key, value] of formData.entries()) {
+    if (data[key]) {
+      if (!Array.isArray(data[key])) data[key] = [data[key]];
+      data[key].push(value);
+    } else {
+      data[key] = value;
+    }
+  }
+
+  Object.keys(data).forEach(key => {
+    if (Array.isArray(data[key])) data[key] = data[key].join(', ');
+  });
+
+  data.timestamp = new Date().toISOString();
+  data.formType = 'Committee';  // 🎯 يميّز هذه الاستمارة
+  data.token = SECURITY_TOKEN;
+
+  return data;
+}
+
+async function submitForm() {
+  if (!validateStep(currentStep)) {
+    const firstError = document.querySelector('.step-card.active .field-group.error');
+    if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+
+  const loading = document.getElementById('loading');
+  loading.classList.add('active');
+
+  const data = collectFormData();
+
+  try {
+    const response = await fetch(APPS_SCRIPT_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(data)
+    });
+
+    const text = await response.text();
+    let result = {};
+    try { result = JSON.parse(text); }
+    catch(e) { result = { status: 'success' }; }
+
+    if (result.status === 'error') {
+      loading.classList.remove('active');
+      alert(result.message || 'حدث خطأ في الإرسال.');
+      return;
+    }
+
+    document.querySelectorAll('.step-card').forEach(card => card.classList.remove('active'));
+    document.getElementById('successScreen').classList.add('active');
+    document.getElementById('stepDots').style.display = 'none';
+
+    document.getElementById('submitDate').textContent = new Date().toLocaleDateString('ar-EG', {
+      year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit'
+    });
+    document.getElementById('submitRef').textContent = 'C-' + Date.now().toString().slice(-8);
+
+    document.getElementById('progressFill').style.width = '100%';
+    document.getElementById('progressPercent').textContent = '100%';
+
+  } catch (error) {
+    alert('حدث خطأ في الاتصال. يرجى المحاولة مرة أخرى.');
+    console.error('Submission error:', error);
+  } finally {
+    loading.classList.remove('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+
+updateProgress();
+
+document.querySelectorAll('input, select, textarea').forEach(field => {
+  field.addEventListener('input', function() {
+    const group = this.closest('.field-group');
+    if (group) group.classList.remove('error');
+  });
+  field.addEventListener('change', function() {
+    const group = this.closest('.field-group');
+    if (group) group.classList.remove('error');
+  });
+});
+</script>
+
+</body>
+</html>
