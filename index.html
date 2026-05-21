@@ -1045,29 +1045,9 @@ main {
 
         <div class="field-group">
           <label class="field-label">التخصص الدقيق الرئيسي <span class="required">*</span></label>
-          <span class="field-hint">اختر أقرب تخصص لاهتمامك البحثي الأساسي</span>
-          <select class="select-input" name="specialization" required>
-            <option value="">— اختر التخصص الدقيق —</option>
-            <option value="الاتصالات اللاسلكية">الاتصالات اللاسلكية (Wireless Communications)</option>
-            <option value="الاتصالات الضوئية">الاتصالات الضوئية/البصرية (Optical)</option>
-            <option value="الاتصالات بالأقمار الصناعية">الاتصالات بالأقمار الصناعية (Satellite)</option>
-            <option value="الاتصالات المتنقلة">الاتصالات المتنقلة والخلوية (Mobile)</option>
-            <option value="شبكات الكمبيوتر">شبكات الكمبيوتر والاتصالات (Networks)</option>
-            <option value="الاتصالات الرقمية">الاتصالات الرقمية (Digital Communications)</option>
-            <option value="معالجة الإشارات">معالجة الإشارات (Signal Processing)</option>
-            <option value="الميكروويف والهوائيات">الميكروويف والهوائيات (Microwave & Antennas)</option>
-            <option value="نظرية المعلومات">نظرية المعلومات والترميز (Info Theory)</option>
-            <option value="أمن المعلومات">أمن المعلومات والاتصالات (Cybersecurity)</option>
-            <option value="الذكاء الاصطناعي">الذكاء الاصطناعي للاتصالات (AI)</option>
-            <option value="إنترنت الأشياء">إنترنت الأشياء (IoT)</option>
-            <option value="الجيل الخامس">الجيل الخامس وما بعده (5G/6G)</option>
-            <option value="الإلكترونيات الرقمية">الإلكترونيات الرقمية</option>
-            <option value="هندسة التحكم">هندسة التحكم والأنظمة (Control)</option>
-            <option value="معالجة الصور">معالجة الصور والفيديو</option>
-            <option value="الحوسبة السحابية">الحوسبة السحابية (Cloud)</option>
-            <option value="أخرى">تخصص آخر</option>
-          </select>
-          <span class="field-error">يُرجى اختيار التخصص</span>
+          <span class="field-hint">اكتب تخصصك الدقيق كاملاً. مثال: الاتصالات اللاسلكية، معالجة الإشارات، الذكاء الاصطناعي، الميكروويف والهوائيات، أمن المعلومات</span>
+          <input type="text" class="text-input" name="specialization" required>
+          <span class="field-error">هذا الحقل مطلوب</span>
         </div>
 
         <div class="field-group">
@@ -1211,9 +1191,10 @@ main {
         </div>
 
         <div class="field-group">
-          <label class="field-label">القسم/الجامعة الأصلية (إذا كنت منتدباً أو معاراً)</label>
+          <label class="field-label">القسم/الجامعة الأصلية (إذا كنت منتدباً أو معاراً) <span class="required">*</span></label>
           <span class="field-hint">اتركه فارغاً إذا كنت ضمن كادر قسم هندسة الاتصالات</span>
-          <input type="text" class="text-input" name="original_department" placeholder="مثال: قسم الهندسة الكهربائية - كلية الهندسة">
+          <input type="text" class="text-input" name="original_department" required placeholder="مثال: قسم الهندسة الكهربائية - كلية الهندسة">
+          <span class="field-error">هذا الحقل مطلوب</span>
         </div>
 
         <div class="nav-buttons">
@@ -1271,8 +1252,7 @@ main {
           <div class="degree-section-header">
             <span class="degree-icon">🎓</span>
             <span class="degree-title">شهادة الماجستير</span>
-            <span class="degree-badge">إن وُجدت</span>
-          </div>
+                      </div>
 
           <div class="field-group">
             <label class="field-label">هل حصلت على الماجستير؟ <span class="required">*</span></label>
@@ -1290,10 +1270,11 @@ main {
 
           <div id="masterFields" style="display:none;">
             <div class="field-group">
-              <label class="field-label">مكان الدراسة</label>
+              <label class="field-label">مكان الدراسة <span class="required">*</span></label>
               <div class="options-grid">
                 <label class="option-card">
                   <input type="radio" name="master_location" value="داخل العراق">
+          <span class="field-error">هذا الحقل مطلوب</span>
                   <span class="option-card-label">داخل العراق</span>
                 </label>
                 <label class="option-card">
@@ -1304,32 +1285,37 @@ main {
             </div>
 
             <div class="field-group">
-              <label class="field-label">التخصص</label>
+              <label class="field-label">التخصص <span class="required">*</span></label>
               <span class="field-hint">مثال: هندسة اتصالات / Communications Engineering</span>
-              <input type="text" class="text-input" name="master_specialization">
+              <input type="text" class="text-input" name="master_specialization" required>
+          <span class="field-error">هذا الحقل مطلوب</span>
             </div>
 
             <div class="field-group">
-              <label class="field-label">الجامعة</label>
+              <label class="field-label">الجامعة <span class="required">*</span></label>
               <span class="field-hint">مثال: جامعة بغداد / Cardiff University</span>
-              <input type="text" class="text-input" name="master_university">
+              <input type="text" class="text-input" name="master_university" required>
+          <span class="field-error">هذا الحقل مطلوب</span>
             </div>
 
             <div class="field-group">
-              <label class="field-label">الدولة</label>
-              <input type="text" class="text-input" name="master_country" placeholder="مثال: العراق / المملكة المتحدة">
+              <label class="field-label">الدولة <span class="required">*</span></label>
+              <input type="text" class="text-input" name="master_country" required placeholder="مثال: العراق / المملكة المتحدة">
+          <span class="field-error">هذا الحقل مطلوب</span>
             </div>
 
             <div class="field-group">
-              <label class="field-label">سنة منح الشهادة</label>
+              <label class="field-label">سنة منح الشهادة <span class="required">*</span></label>
               <span class="field-hint">السنة فقط (مثال: 2015)</span>
-              <input type="number" class="text-input" name="master_year" min="1960" max="2030" placeholder="2015">
+              <input type="number" class="text-input" name="master_year" required min="1960" max="2030" placeholder="2015">
+          <span class="field-error">هذا الحقل مطلوب</span>
             </div>
 
             <div class="field-group">
-              <label class="field-label">عنوان رسالة الماجستير</label>
+              <label class="field-label">عنوان رسالة الماجستير <span class="required">*</span></label>
               <span class="field-hint">العنوان كاملاً كما هو في الشهادة</span>
-              <textarea class="textarea-input" name="master_thesis" rows="2"></textarea>
+              <textarea class="textarea-input" name="master_thesis" required rows="2"></textarea>
+          <span class="field-error">هذا الحقل مطلوب</span>
             </div>
           </div>
         </div>
@@ -1339,8 +1325,7 @@ main {
           <div class="degree-section-header">
             <span class="degree-icon">🎓</span>
             <span class="degree-title">شهادة الدكتوراه</span>
-            <span class="degree-badge">إن وُجدت</span>
-          </div>
+                      </div>
 
           <div class="field-group">
             <label class="field-label">هل حصلت على الدكتوراه؟ <span class="required">*</span></label>
@@ -1362,10 +1347,11 @@ main {
 
           <div id="phdFields" style="display:none;">
             <div class="field-group">
-              <label class="field-label">مكان الدراسة</label>
+              <label class="field-label">مكان الدراسة <span class="required">*</span></label>
               <div class="options-grid">
                 <label class="option-card">
                   <input type="radio" name="phd_location" value="داخل العراق">
+          <span class="field-error">هذا الحقل مطلوب</span>
                   <span class="option-card-label">داخل العراق</span>
                 </label>
                 <label class="option-card">
@@ -1376,32 +1362,37 @@ main {
             </div>
 
             <div class="field-group">
-              <label class="field-label">التخصص</label>
+              <label class="field-label">التخصص <span class="required">*</span></label>
               <span class="field-hint">مثال: هندسة الاتصالات اللاسلكية / Wireless Communications</span>
-              <input type="text" class="text-input" name="phd_specialization">
+              <input type="text" class="text-input" name="phd_specialization" required>
+          <span class="field-error">هذا الحقل مطلوب</span>
             </div>
 
             <div class="field-group">
-              <label class="field-label">الجامعة</label>
+              <label class="field-label">الجامعة <span class="required">*</span></label>
               <span class="field-hint">مثال: جامعة بغداد / University of Manchester</span>
-              <input type="text" class="text-input" name="phd_university">
+              <input type="text" class="text-input" name="phd_university" required>
+          <span class="field-error">هذا الحقل مطلوب</span>
             </div>
 
             <div class="field-group">
-              <label class="field-label">الدولة</label>
-              <input type="text" class="text-input" name="phd_country" placeholder="مثال: العراق / المملكة المتحدة">
+              <label class="field-label">الدولة <span class="required">*</span></label>
+              <input type="text" class="text-input" name="phd_country" required placeholder="مثال: العراق / المملكة المتحدة">
+          <span class="field-error">هذا الحقل مطلوب</span>
             </div>
 
             <div class="field-group">
-              <label class="field-label">سنة منح الشهادة</label>
+              <label class="field-label">سنة منح الشهادة <span class="required">*</span></label>
               <span class="field-hint">السنة فقط (للحاصلين). للذين قيد الإنجاز اكتب السنة المتوقعة</span>
-              <input type="number" class="text-input" name="phd_year" min="1960" max="2035" placeholder="2020">
+              <input type="number" class="text-input" name="phd_year" required min="1960" max="2035" placeholder="2020">
+          <span class="field-error">هذا الحقل مطلوب</span>
             </div>
 
             <div class="field-group">
-              <label class="field-label">عنوان أطروحة الدكتوراه</label>
+              <label class="field-label">عنوان أطروحة الدكتوراه <span class="required">*</span></label>
               <span class="field-hint">العنوان كاملاً كما هو في الشهادة</span>
-              <textarea class="textarea-input" name="phd_thesis" rows="2"></textarea>
+              <textarea class="textarea-input" name="phd_thesis" required rows="2"></textarea>
+          <span class="field-error">هذا الحقل مطلوب</span>
             </div>
           </div>
         </div>
@@ -1411,25 +1402,24 @@ main {
           <div class="degree-section-header">
             <span class="degree-icon">📜</span>
             <span class="degree-title">شهادات إضافية</span>
-            <span class="degree-badge">اختياري</span>
-          </div>
+                      </div>
 
           <div class="field-group">
             <label class="field-label">
-              <span class="optional-mark">اختياري</span>
-              شهادات ما بعد الدكتوراه (Postdoc)
-            </label>
+                            شهادات ما بعد الدكتوراه (Postdoc)
+             <span class="required">*</span></label>
             <span class="field-hint">المؤسسة، البلد، الفترة — اتركها فارغة إذا لا توجد</span>
-            <textarea class="textarea-input" name="postdoc" rows="2"></textarea>
+            <textarea class="textarea-input" name="postdoc" required rows="2"></textarea>
+          <span class="field-error">هذا الحقل مطلوب</span>
           </div>
 
           <div class="field-group">
             <label class="field-label">
-              <span class="optional-mark">اختياري</span>
-              شهادات مهنية معتمدة
-            </label>
+                            شهادات مهنية معتمدة
+             <span class="required">*</span></label>
             <span class="field-hint">مثال: CCNA, PMP, Cisco Certified — اتركها فارغة إذا لا توجد</span>
-            <textarea class="textarea-input" name="prof_certificates" rows="2"></textarea>
+            <textarea class="textarea-input" name="prof_certificates" required rows="2"></textarea>
+          <span class="field-error">هذا الحقل مطلوب</span>
           </div>
         </div>
 
@@ -1445,9 +1435,8 @@ main {
           <div class="step-number">— الخطوة 6 من 7 —</div>
           <h2 class="step-title">
             المعرّفات العلمية
-            <span class="optional-badge">اختياري</span>
-          </h2>
-          <p class="step-description">المعرّفات والروابط في قواعد البيانات العلمية العالمية. <strong>يمكنك تخطّي ما لا تملك.</strong></p>
+                    </h2>
+          <p class="step-description">المعرّفات والروابط في قواعد البيانات العلمية العالمية. جميع الحقول مطلوبة.</p>
         </div>
 
         <div class="info-box">
@@ -1461,63 +1450,63 @@ main {
 
         <div class="field-group">
           <label class="field-label">
-            <span class="optional-mark">اختياري</span>
-            ORCID ID
-          </label>
+                          ORCID ID
+           <span class="required">*</span></label>
           <span class="field-hint">المعرّف العالمي الموحّد. مثال: 0000-0002-1825-0097<br>للحصول عليه مجاناً: orcid.org</span>
-          <input type="text" class="text-input" name="orcid">
+          <input type="text" class="text-input" name="orcid" required>
+          <span class="field-error">هذا الحقل مطلوب</span>
         </div>
 
         <div class="field-group">
           <label class="field-label">
-            <span class="optional-mark">اختياري</span>
-            رابط Google Scholar Profile
-          </label>
+                          رابط Google Scholar Profile
+           <span class="required">*</span></label>
           <span class="field-hint">مثال: scholar.google.com/citations?user=XXXXXX</span>
-          <input type="url" class="text-input" name="scholar_url" placeholder="https://scholar.google.com/...">
+          <input type="url" class="text-input" name="scholar_url" required placeholder="https://scholar.google.com/...">
+          <span class="field-error">هذا الحقل مطلوب</span>
         </div>
 
         <div class="field-group">
           <label class="field-label">
-            <span class="optional-mark">اختياري</span>
-            Scopus Author ID
-          </label>
+                          Scopus Author ID
+           <span class="required">*</span></label>
           <span class="field-hint">مثال: 7401234567 — يُمكن العثور عليه من scopus.com</span>
-          <input type="text" class="text-input" name="scopus_id">
+          <input type="text" class="text-input" name="scopus_id" required>
+          <span class="field-error">هذا الحقل مطلوب</span>
         </div>
 
         <div class="field-group">
           <label class="field-label">
-            <span class="optional-mark">اختياري</span>
-            Web of Science ResearcherID
-          </label>
+                          Web of Science ResearcherID
+           <span class="required">*</span></label>
           <span class="field-hint">مثال: A-1234-2020</span>
-          <input type="text" class="text-input" name="wos_id">
+          <input type="text" class="text-input" name="wos_id" required>
+          <span class="field-error">هذا الحقل مطلوب</span>
         </div>
 
         <div class="field-group">
           <label class="field-label">
-            <span class="optional-mark">اختياري</span>
-            رابط ResearchGate
-          </label>
+                          رابط ResearchGate
+           <span class="required">*</span></label>
           <span class="field-hint">مثال: researchgate.net/profile/Your-Name</span>
-          <input type="url" class="text-input" name="researchgate" placeholder="https://researchgate.net/...">
+          <input type="url" class="text-input" name="researchgate" required placeholder="https://researchgate.net/...">
+          <span class="field-error">هذا الحقل مطلوب</span>
         </div>
 
         <div class="field-group">
           <label class="field-label">
-            <span class="optional-mark">اختياري</span>
-            رابط Academia.edu
-          </label>
-          <input type="url" class="text-input" name="academia" placeholder="https://yourname.academia.edu">
+                          رابط Academia.edu
+           <span class="required">*</span></label>
+          <input type="url" class="text-input" name="academia" required placeholder="https://yourname.academia.edu">
+          <span class="field-error">هذا الحقل مطلوب</span>
         </div>
 
         <div class="field-group">
           <label class="field-label">
-            <span class="optional-mark">اختياري</span>
-            رابط LinkedIn
-          </label>
-          <input type="url" class="text-input" name="linkedin" placeholder="https://linkedin.com/in/...">
+                          رابط LinkedIn
+           <span class="required">*</span></label>
+          <input type="url" class="text-input" name="linkedin" required placeholder="https://linkedin.com/in/...">
+          <span class="field-error">هذا الحقل مطلوب</span>
         </div>
 
         <div class="nav-buttons">
@@ -1531,7 +1520,7 @@ main {
         <div class="step-header">
           <div class="step-number">— الخطوة الأخيرة 7 من 7 —</div>
           <h2 class="step-title">الإنتاج العلمي والأنشطة</h2>
-          <p class="step-description">إحصائيات الإنتاج البحثي والأنشطة المهنية — معظم الحقول اختيارية.</p>
+          <p class="step-description">إحصائيات الإنتاج البحثي والأنشطة المهنية.</p>
         </div>
 
         <div class="info-box">
@@ -1543,67 +1532,67 @@ main {
 
         <div class="field-group">
           <label class="field-label">
-            <span class="optional-mark">اختياري</span>
-            إجمالي عدد المنشورات
-          </label>
+                          إجمالي عدد المنشورات
+           <span class="required">*</span></label>
           <span class="field-hint">رقم تقريبي</span>
-          <input type="number" class="text-input" name="total_publications" min="0" placeholder="0">
+          <input type="number" class="text-input" name="total_publications" required min="0" placeholder="0">
+          <span class="field-error">هذا الحقل مطلوب</span>
         </div>
 
         <div class="field-group">
           <label class="field-label">
-            <span class="optional-mark">اختياري</span>
-            عدد منشورات Scopus
-          </label>
-          <input type="number" class="text-input" name="scopus_pubs" min="0" placeholder="0">
+                          عدد منشورات Scopus
+           <span class="required">*</span></label>
+          <input type="number" class="text-input" name="scopus_pubs" required min="0" placeholder="0">
+          <span class="field-error">هذا الحقل مطلوب</span>
         </div>
 
         <div class="field-group">
           <label class="field-label">
-            <span class="optional-mark">اختياري</span>
-            عدد منشورات Web of Science
-          </label>
-          <input type="number" class="text-input" name="wos_pubs" min="0" placeholder="0">
+                          عدد منشورات Web of Science
+           <span class="required">*</span></label>
+          <input type="number" class="text-input" name="wos_pubs" required min="0" placeholder="0">
+          <span class="field-error">هذا الحقل مطلوب</span>
         </div>
 
         <div class="field-group">
           <label class="field-label">
-            <span class="optional-mark">اختياري</span>
-            H-index من Google Scholar
-          </label>
-          <input type="number" class="text-input" name="h_scholar" min="0" placeholder="0">
+                          H-index من Google Scholar
+           <span class="required">*</span></label>
+          <input type="number" class="text-input" name="h_scholar" required min="0" placeholder="0">
+          <span class="field-error">هذا الحقل مطلوب</span>
         </div>
 
         <div class="field-group">
           <label class="field-label">
-            <span class="optional-mark">اختياري</span>
-            H-index من Scopus
-          </label>
-          <input type="number" class="text-input" name="h_scopus" min="0" placeholder="0">
+                          H-index من Scopus
+           <span class="required">*</span></label>
+          <input type="number" class="text-input" name="h_scopus" required min="0" placeholder="0">
+          <span class="field-error">هذا الحقل مطلوب</span>
         </div>
 
         <div class="field-group">
           <label class="field-label">
-            <span class="optional-mark">اختياري</span>
-            إجمالي عدد الاستشهادات (Citations)
-          </label>
-          <input type="number" class="text-input" name="citations" min="0" placeholder="0">
+                          إجمالي عدد الاستشهادات (Citations)
+           <span class="required">*</span></label>
+          <input type="number" class="text-input" name="citations" required min="0" placeholder="0">
+          <span class="field-error">هذا الحقل مطلوب</span>
         </div>
 
         <div class="field-group">
           <label class="field-label">
-            <span class="optional-mark">اختياري</span>
-            عدد الكتب المؤلفة
-          </label>
-          <input type="number" class="text-input" name="books" min="0" placeholder="0">
+                          عدد الكتب المؤلفة
+           <span class="required">*</span></label>
+          <input type="number" class="text-input" name="books" required min="0" placeholder="0">
+          <span class="field-error">هذا الحقل مطلوب</span>
         </div>
 
         <div class="field-group">
           <label class="field-label">
-            <span class="optional-mark">اختياري</span>
-            عدد فصول الكتب
-          </label>
-          <input type="number" class="text-input" name="book_chapters" min="0" placeholder="0">
+                          عدد فصول الكتب
+           <span class="required">*</span></label>
+          <input type="number" class="text-input" name="book_chapters" required min="0" placeholder="0">
+          <span class="field-error">هذا الحقل مطلوب</span>
         </div>
 
         <div class="field-group">
